@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<style>
+
+		#qAndA {
+		    text-align: center;
+		    width: 100%;
+		}
+
+		#qAndA th {
+			padding-top: 12px;
+		    padding-bottom: 12px;
+		    background-color: #4CAF50;
+		    color: white;
+		}
+
+		#qAndA tr {
+		}
+
+		#qAndA td {
+			padding-top: 8px;
+		    padding-bottom: 8px;
+		}
+
+		/*2nd row styling*/
+		#qAndA td:nth-child(2) {
+			color: white;
+		}
+
+	</style>
+
+</head>
+<body>
+
+<h2>Japanese Vocab Test</h2>
+<!–– Question Table ––>
+<table id="qAndA">
+  <tr>
+    <th>Word</th>
+    <th>Answer</th>
+  </tr>
+  <tr>
+    <td id="wordA">Word</td>	<!–– Word A ––>
+    <td id="answerRow"><div id="answerA">Answer</div></td>
+  </tr>
+  <tr>
+    <td id="wordB">Word</td>	<!–– Word B ––>
+    <td id="answerRow"><div id="answerB">Answer</div></td>
+  </tr>
+    <tr>
+    <td id="wordC">Word</td>	<!–– Word C ––>
+    <td id="answerRow"><div id="answerC">Answer</div></td>
+  </tr>
+    <tr>
+    <td id="wordD">Word</td>	<!–– Word D ––>
+    <td id="answerRow"><div id="answerD">Answer</div></td>
+  </tr>
+    <tr>
+    <td id="wordE">Word</td>	<!–– Word E ––>
+    <td id="answerRow"><div id="answerE">Answer</div></td>
+  </tr>
+    <tr>
+    <td id="wordF">Word</td>	<!–– Word F ––>
+    <td id="answerRow"><div id="answerF">Answer</div></td>
+  </tr>
+    <tr>
+    <td id="wordG">Word</td>	<!–– Word G ––>
+    <td id="answerRow"><div id="answerG">Answer</div></td>
+  </tr>
+     <tr>
+    <td id="wordH">Word</td>	<!–– Word H ––>
+    <td id="answerRow"><div id="answerH">Answer</div></td>
+  </tr>
+  <tr>
+    <td id="wordI">Word</td>	<!–– Word I ––>
+    <td id="answerRow"><div id="answerI">Answer</div></td>
+  </tr>
+  <tr>
+    <td id="wordJ">Word</td>	<!–– Word J ––>
+    <td id="answerRow"><div id="answerJ">Answer</div></td>
+  </tr>
+</table>
+
+<!–– Generate Questions ––>
+<button type="button" onclick="generateQuestions()">Generate Questions</button>
+
+<script>
+
+	//Array of Words
+	var myWords = [
+		{wordName:'Karaoke', wordAnswer:'Karaoke カラオケ'},
+		{wordName:'Alcohol', wordAnswer:'(O-)sake（お）酒'},
+		{wordName:'Anime', wordAnswer:'Anime アニメ'},
+		{wordName:'Cat', wordAnswer:'Neko 猫'},
+		{wordName:'Sea', wordAnswer:'Umi 海'},
+		{wordName:'Hill', wordAnswer:'Oka 丘'},
+		{wordName:'Person', wordAnswer:'Hito 人'},
+		{wordName:'Flower', wordAnswer:'Hana 花'},
+		{wordName:'Mouth', wordAnswer:'Kuchi 口'},
+		{wordName:'Ear', wordAnswer:'Mimi 耳'},
+		{wordName:'Sun', wordAnswer:'Hi/taiyō 日・太陽'},
+		{wordName:'Village', wordAnswer:'Mura 村'},
+		{wordName:'Countryside', wordAnswer:'Inaka 田舎'},
+		{wordName:'Name', wordAnswer:'Namae 名前'},
+		{wordName:'King', wordAnswer:'Ō 王'},
+		{wordName:'Gold', wordAnswer:'Kin 金'},
+		{wordName:'School', wordAnswer:'Gakkō 学校'},
+		{wordName:'Cloud', wordAnswer:'Kumo 雲'},
+		{wordName:'Face', wordAnswer:'Kao 顔'},
+		{wordName:'Ramen', wordAnswer:'Rāmen ラーメン'},
+		{wordName:'Sushi', wordAnswer:'Sushi 寿司'},
+		{wordName:'Manga', wordAnswer:'Manga マンガ'},
+		{wordName:'Tea', wordAnswer:'Ocha お茶'},
+		{wordName:'Fire', wordAnswer:'Hi 火'},
+		{wordName:'Tree', wordAnswer:'Ki 木'},
+		{wordName:'Car', wordAnswer:'Kuruma 車'},
+		{wordName:'Sound', wordAnswer:'Oto 音'},
+		{wordName:'Hand', wordAnswer:'Te 手'},
+		{wordName:'Man', wordAnswer:'Otoko 男'},
+		{wordName:'Stone', wordAnswer:'Ishi 石'},
+		{wordName:'Town', wordAnswer:'Machi 町'},
+		{wordName:'Ground', wordAnswer:'Tsuchi 土'},
+		{wordName:'Strength', wordAnswer:'Chikara 力'},
+		{wordName:'Queen', wordAnswer:'Jo ō 女王'},
+		{wordName:'Silver ', wordAnswer:'Gin 銀'},
+		{wordName:'Thread', wordAnswer:'Ito 糸'},
+		{wordName:'Song ', wordAnswer:'Uta 歌'},
+		{wordName:'Cow', wordAnswer:'Ushi 牛'},
+		{wordName:'Karate', wordAnswer:'Karate 空手'},
+		{wordName:'Mountain', wordAnswer:'Yama 山'},
+		{wordName:'Dog', wordAnswer:'Inu 犬'},
+		{wordName:'Water', wordAnswer:'Mizu 水'},
+		{wordName:'Bamboo', wordAnswer:'Take 竹'},
+		{wordName:'Grass', wordAnswer:'Kusa 草'},
+		{wordName:'Yen', wordAnswer:'En 円'},
+		{wordName:'Sky', wordAnswer:'Sora 空'},
+		{wordName:'Leg/foot', wordAnswer:'Ashi 脚・足'},
+		{wordName:'Woman', wordAnswer:'On na 女'},
+		{wordName:'River', wordAnswer:'Kawa 川'},
+		{wordName:'Bug', wordAnswer:'Mushi 虫'},
+		{wordName:'Book', wordAnswer:'Hon 本 '},
+		{wordName:'Eye(s)', wordAnswer:'Me 目 '},
+		{wordName:'Rain', wordAnswer:'Ame 雨'},
+		{wordName:'Money', wordAnswer:'Okane お金'},
+		{wordName:'Year', wordAnswer:'Toshi 年'},
+		{wordName:'Fish', wordAnswer:'Sakana 魚'},
+		{wordName:'Shape', wordAnswer:'Katachi 形'}
+	]
+
+	/*
+	
+	*/
+
+	function generateQuestions(){
+		//New Array for Selected Words
+		var selectWords = []
+
+		//randomly pick 10 words
+		while(selectWords.length < 10){
+			var randomWord = myWords[Math.floor(Math.random() * myWords.length)]
+			if(selectWords.indexOf(randomWord) > -1) continue;
+			selectWords[selectWords.length] = randomWord;
+		}
+
+		//get selected questions
+		document.getElementById("wordA").innerHTML = selectWords[0].wordName;
+		document.getElementById("wordB").innerHTML = selectWords[1].wordName;
+		document.getElementById("wordC").innerHTML = selectWords[2].wordName;
+		document.getElementById("wordD").innerHTML = selectWords[3].wordName;
+		document.getElementById("wordE").innerHTML = selectWords[4].wordName;
+		document.getElementById("wordF").innerHTML = selectWords[5].wordName;
+		document.getElementById("wordG").innerHTML = selectWords[6].wordName;
+		document.getElementById("wordH").innerHTML = selectWords[7].wordName;
+		document.getElementById("wordI").innerHTML = selectWords[8].wordName;
+		document.getElementById("wordJ").innerHTML = selectWords[9].wordName;
+
+		//get selected answers
+		document.getElementById("answerA").innerHTML = selectWords[0].wordAnswer;
+		document.getElementById("answerB").innerHTML = selectWords[1].wordAnswer;
+		document.getElementById("answerC").innerHTML = selectWords[2].wordAnswer;
+		document.getElementById("answerD").innerHTML = selectWords[3].wordAnswer;
+		document.getElementById("answerE").innerHTML = selectWords[4].wordAnswer;
+		document.getElementById("answerF").innerHTML = selectWords[5].wordAnswer;
+		document.getElementById("answerG").innerHTML = selectWords[6].wordAnswer;
+		document.getElementById("answerH").innerHTML = selectWords[7].wordAnswer;
+		document.getElementById("answerI").innerHTML = selectWords[8].wordAnswer;
+		document.getElementById("answerJ").innerHTML = selectWords[9].wordAnswer;
+	}
+
+	function showAnswer() {
+    var button = document.getElementById("wordA");
+    if (button.style.display === "none") {
+	        button.style.display = "block";
+	    } else {
+	        button.style.display = "none";
+	    }
+	} 
+
+</script>
+
+</body>
+</html> 
