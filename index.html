@@ -12,7 +12,7 @@ body {
 
 #gridContainer {
   display: grid;
-  grid-column-gap: 50px;
+  grid-column-gap:50px;
   grid-row-gap:8px;
   grid-template-columns: auto auto;
 ;
@@ -23,8 +23,8 @@ body {
 }
 
 .questionBox {
-    width:200px;
-    min-width:200px;
+    width:150px;
+    min-width:100px;
     max-width: 400px;
     background-color: #3899FA;
     color: #444;
@@ -48,8 +48,8 @@ body {
     overflow: hidden;
     background-color: #E4E4E5;
     margin:auto;
-    width:200px;
-    min-width:200px;
+    width:150px;
+    min-width:100px;
     max-width: 400px;
 }
 </style>
@@ -136,65 +136,116 @@ body {
 <script>
 //Array of Words
     var myWords = [
-        {wordName:'Karaoke', wordAnswer:'Karaoke カラオケ'},
-        {wordName:'Alcohol', wordAnswer:'(O-)sake（お）酒'},
-        {wordName:'Anime', wordAnswer:'Anime アニメ'},
-        {wordName:'Cat', wordAnswer:'Neko 猫'},
-        {wordName:'Sea', wordAnswer:'Umi 海'},
-        {wordName:'Hill', wordAnswer:'Oka 丘'},
-        {wordName:'Person', wordAnswer:'Hito 人'},
-        {wordName:'Flower', wordAnswer:'Hana 花'},
-        {wordName:'Mouth', wordAnswer:'Kuchi 口'},
-        {wordName:'Ear', wordAnswer:'Mimi 耳'},
-        {wordName:'Sun', wordAnswer:'Hi/taiyō 日・太陽'},
-        {wordName:'Village', wordAnswer:'Mura 村'},
-        {wordName:'Countryside', wordAnswer:'Inaka 田舎'},
-        {wordName:'Name', wordAnswer:'Namae 名前'},
-        {wordName:'King', wordAnswer:'Ō 王'},
-        {wordName:'Gold', wordAnswer:'Kin 金'},
-        {wordName:'School', wordAnswer:'Gakkō 学校'},
-        {wordName:'Cloud', wordAnswer:'Kumo 雲'},
-        {wordName:'Face', wordAnswer:'Kao 顔'},
-        {wordName:'Ramen', wordAnswer:'Rāmen ラーメン'},
-        {wordName:'Sushi', wordAnswer:'Sushi 寿司'},
-        {wordName:'Manga', wordAnswer:'Manga マンガ'},
-        {wordName:'Tea', wordAnswer:'Ocha お茶'},
-        {wordName:'Fire', wordAnswer:'Hi 火'},
-        {wordName:'Tree', wordAnswer:'Ki 木'},
-        {wordName:'Car', wordAnswer:'Kuruma 車'},
-        {wordName:'Sound', wordAnswer:'Oto 音'},
-        {wordName:'Hand', wordAnswer:'Te 手'},
-        {wordName:'Man', wordAnswer:'Otoko 男'},
-        {wordName:'Stone', wordAnswer:'Ishi 石'},
-        {wordName:'Town', wordAnswer:'Machi 町'},
-        {wordName:'Ground', wordAnswer:'Tsuchi 土'},
-        {wordName:'Strength', wordAnswer:'Chikara 力'},
-        {wordName:'Queen', wordAnswer:'Jo ō 女王'},
-        {wordName:'Silver ', wordAnswer:'Gin 銀'},
-        {wordName:'Thread', wordAnswer:'Ito 糸'},
-        {wordName:'Song ', wordAnswer:'Uta 歌'},
-        {wordName:'Cow', wordAnswer:'Ushi 牛'},
-        {wordName:'Karate', wordAnswer:'Karate 空手'},
-        {wordName:'Mountain', wordAnswer:'Yama 山'},
-        {wordName:'Dog', wordAnswer:'Inu 犬'},
-        {wordName:'Water', wordAnswer:'Mizu 水'},
-        {wordName:'Bamboo', wordAnswer:'Take 竹'},
-        {wordName:'Grass', wordAnswer:'Kusa 草'},
-        {wordName:'Yen', wordAnswer:'En 円'},
-        {wordName:'Sky', wordAnswer:'Sora 空'},
-        {wordName:'Leg/foot', wordAnswer:'Ashi 脚・足'},
-        {wordName:'Woman', wordAnswer:'On na 女'},
-        {wordName:'River', wordAnswer:'Kawa 川'},
-        {wordName:'Bug', wordAnswer:'Mushi 虫'},
-        {wordName:'Book', wordAnswer:'Hon 本 '},
-        {wordName:'Eye(s)', wordAnswer:'Me 目 '},
-        {wordName:'Rain', wordAnswer:'Ame 雨'},
-        {wordName:'Money', wordAnswer:'Okane お金'},
-        {wordName:'Year', wordAnswer:'Toshi 年'},
-        {wordName:'Fish', wordAnswer:'Sakana 魚'},
-        {wordName:'Shape', wordAnswer:'Katachi 形'}
-    ]
+        {wordName:'Karaoke', wordAnswer:'カラオケ'},
+        {wordName:'Alcohol', wordAnswer:'（お）さけ　酒'},
+        {wordName:'Anime', wordAnswer:'アニメ'},
+        {wordName:'Cat', wordAnswer:'ねこ 猫'},
+        {wordName:'Sea', wordAnswer:'うみ 海'},
+        {wordName:'Hill', wordAnswer:'おか 丘'},
+        {wordName:'Person', wordAnswer:'ひと 人'},
+        {wordName:'Flower', wordAnswer:'はな 花'},
+        {wordName:'Mouth', wordAnswer:'くち 口'},
+        {wordName:'Ear', wordAnswer:'みみ 耳'},
+        {wordName:'Sun', wordAnswer:'ひ/たいよお 日・太陽'},
+        {wordName:'Village', wordAnswer:'むら 村'},
+        {wordName:'Countryside', wordAnswer:'いなか 田舎'},
+        {wordName:'Name', wordAnswer:'なまえ 名前'},
+        {wordName:'King', wordAnswer:'おお 王'},
+        {wordName:'Gold', wordAnswer:'きｎ 金'},
+        {wordName:'School', wordAnswer:'がっこお 学校'},
+        {wordName:'Cloud', wordAnswer:'くも 雲'},
+        {wordName:'Face', wordAnswer:'かお 顔'},
+        {wordName:'Ramen', wordAnswer:'らあめｎ ラーメン'},
+        {wordName:'Sushi', wordAnswer:'すし 寿司'},
+        {wordName:'Manga', wordAnswer:'まんが マンガ'},
+        {wordName:'Tea', wordAnswer:'おは お茶'},
+        {wordName:'Fire', wordAnswer:'ひ 火'},
+        {wordName:'Tree', wordAnswer:'き 木'},
+        {wordName:'Car', wordAnswer:'くるま 車'},
+        {wordName:'Sound', wordAnswer:'おと 音'},
+        {wordName:'Hand', wordAnswer:'て 手'},
+        {wordName:'Man', wordAnswer:'おとこ 男'},
+        {wordName:'Stone', wordAnswer:'いし 石'},
+        {wordName:'Town', wordAnswer:'まち 町'},
+        {wordName:'Ground', wordAnswer:'つち 土'},
+        {wordName:'Strength', wordAnswer:'ちから 力'},
+        {wordName:'Queen', wordAnswer:'じょ おお 女王'},
+        {wordName:'Silver ', wordAnswer:'ぎん 銀'},
+        {wordName:'Thread', wordAnswer:'いと 糸'},
+        {wordName:'Song ', wordAnswer:'うた 歌'},
+        {wordName:'Cow', wordAnswer:'うし 牛'},
+        {wordName:'Karate', wordAnswer:'からて 空手'},
+        {wordName:'Mountain', wordAnswer:'やま 山'},
+        {wordName:'Dog', wordAnswer:'いぬ 犬'},
+        {wordName:'Water', wordAnswer:'みず 水'},
+        {wordName:'Bamboo', wordAnswer:'たけ 竹'},
+        {wordName:'Grass', wordAnswer:'くさ 草'},
+        {wordName:'Yen', wordAnswer:'えｎ 円'},
+        {wordName:'Sky', wordAnswer:'そら 空'},
+        {wordName:'Leg/foot', wordAnswer:'し 脚・足'},
+        {wordName:'Woman', wordAnswer:'おん　な 女'},
+        {wordName:'River', wordAnswer:'かわ 川'},
+        {wordName:'Bug', wordAnswer:'むし 虫'},
+        {wordName:'Book', wordAnswer:'ほん 本 '},
+        {wordName:'Eye(s)', wordAnswer:'め 目 '},
+        {wordName:'Rain', wordAnswer:'あめ 雨'},
+        {wordName:'Money', wordAnswer:'おかね お金'},
+        {wordName:'Year', wordAnswer:'とし 年'},
+        {wordName:'Fish', wordAnswer:'さかな 魚'},
+        {wordName:'Shape', wordAnswer:'かたち 形'},
+        {wordName:'Fact', wordAnswer:'じじつ 事実'},
+        {wordName:'Buddhist temple', wordAnswer:'てら 寺'},
+        {wordName:'Bat', wordAnswer:'こおもり コウモリ'},
+        {wordName:'Bird', wordAnswer:'とり 鳥'},
+        {wordName:'Student', wordAnswer:'がくせい 学生'},
+        {wordName:'Korean', wordAnswer:'かんこくじｎ 韓国人'},
+        {wordName:'Calligraphy', wordAnswer:'しょどお 書道'},
+        {wordName:'Art', wordAnswer:'げいｊつす 芸術'},
+        {wordName:'Idiot', wordAnswer:'ばか 馬鹿'},
+        {wordName:'Cat', wordAnswer:'ねこ 猫'},
+        {wordName:'Party', wordAnswer:'パーティー'},
+        {wordName:'Start/beginning', wordAnswer:'かいし 開始'},
+        {wordName:'Zoo', wordAnswer:'どおぶつえｎ 動物園'},
+        {wordName:'A tie', wordAnswer:'ひきわけ 引き分け'},
+        {wordName:'Otter', wordAnswer:'かわうそ カワウソ'},
+        {wordName:'French', wordAnswer:'ふらんすご フランス語'},
+        {wordName:'School', wordAnswer:'がっこお 学校'},
+        {wordName:'Correct Answer', wordAnswer:'せいかい 正解'},
+        {wordName:'Planet', wordAnswer:'わくせい 惑星'},
+        {wordName:'Pluto', wordAnswer:'めいおおせい 冥王星'},
+        {wordName:'Tea', wordAnswer:'おちゃ お茶'},
+        {wordName:'Representative', wordAnswer:'だいひょお 代表'},
+        {wordName:'Cause', wordAnswer:'げん’いん 原因'},
+        {wordName:'Tabacco', wordAnswer:'たばこ 煙草・タバコ・たばこ'},
+        {wordName:'Children', wordAnswer:'こども 子供'},
+        {wordName:'Pen', wordAnswer:'ペン'},
+        {wordName:'Whale', wordAnswer:'くじら 鯨'},
+        {wordName:'Fish', wordAnswer:'さかな 魚'},
+        {wordName:'Mock Exam', wordAnswer:'もぎ しけん 模擬試験'},
+        {wordName:'Water', wordAnswer:'みず 水'},
+        {wordName:'Time', wordAnswer:'じかｎ 時間'},
+        {wordName:'New Years Day', wordAnswer:'がんじつ 元日'},
+        {wordName:'Monday', wordAnswer:'げつよおび 月曜日'},
+        {wordName:'Wednesday', wordAnswer:'すいよおび 水曜日'},
+        {wordName:'Start Date', wordAnswer:'かいしび 開始日'},
+        {wordName:'Yesterday', wordAnswer:'きのお 昨日'},
+        {wordName:'Tomorrow', wordAnswer:'あした/あす 明日'},
+        {wordName:'Night', wordAnswer:'よる 夜'},
+        {wordName:'I', wordAnswer:'わたし 私'},
+        {wordName:'I (male)', wordAnswer:'ぼく 僕'},
+        {wordName:'He', wordAnswer:'かれ 彼'},
+        {wordName:'She', wordAnswer:'かおじょ 彼女'},
+        {wordName:'This', wordAnswer:'これ'},
+        {wordName:'That', wordAnswer:'それ'},
+        {wordName:'That (adj)', wordAnswer:'その'},
+        {wordName:'That (over there)', wordAnswer:'あれ'},
+        {wordName:'Here', wordAnswer:'ここ'},
+        {wordName:'Kim', wordAnswer:'キム'},
+        {wordName:'Pikachu', wordAnswer:'ピカチュウ'},
+        {wordName:'Ah', wordAnswer:'あ'}
 
+    ]
+/*{wordName:'', wordAnswer:''}, */
 var genQ = document.getElementById("generateQuestions");
 
 genQ.addEventListener("click", function() {
