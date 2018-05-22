@@ -59,6 +59,7 @@ body {
 
 <button id="generateQuestions">Generate</button>
 <button id="resetButton">Reset</button>
+<button id="revealButton">Reveal</button>
 
 <div id="gridContainer">
 <div class ="questionAll">
@@ -294,6 +295,7 @@ genQ.addEventListener("click", function() {
 var acc = document.getElementsByClassName("questionBox");
 var ans = document.getElementsByClassName("panel");
 var res = document.getElementById("resetButton");
+var rev = document.getElementById("revealButton");
 var i;
 
 //Opening up accordion
@@ -317,7 +319,14 @@ res.addEventListener("click", function() {
     	}
 	});
 
-
+//Reveal accordion
+rev.addEventListener("click", function() {
+    for (i = 0; i < ans.length; i++) {
+     if (ans[i].style.display === "") {
+                ans[i].style.display = "block";
+            } 
+        }
+    });
 </script>
 
 </body>
