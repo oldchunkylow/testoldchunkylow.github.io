@@ -9,23 +9,32 @@ body {
     text-align: center;
 }
 
-
+/*
 #gridContainer {
   display: grid;
   grid-column-gap:50px;
   grid-row-gap:8px;
   grid-template-columns: auto auto;
-;
+}
+*/
+
+.columnQuestions {
+    text-align: left;
+    float: left;
+    width: 50%;
+    padding: 10px;
 }
 
-.questionAll {
-
+/* Clear floats after the columns */
+.rowQuestions:after {
+    content: "";
+    display: table;
+    clear: both;
 }
+
 
 .questionBox {
     width:150px;
-    min-width:100px;
-    max-width: 400px;
     background-color: #3899FA;
     color: #444;
     cursor: pointer;
@@ -36,21 +45,64 @@ body {
     transition: 0.4s;
 }
 
-
 .active, .questionBox:hover {
     background-color: #3899FA;
 }
 
 .panel {
-    padding: 0px 0px 0px 0px;
+    text-align: center;
     display: none;
     background-color: white;
     overflow: hidden;
     background-color: #E4E4E5;
-    margin:auto;
     width:150px;
-    min-width:100px;
-    max-width: 400px;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabContent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.column {
+    text-align: left;
+    float: left;
+    width: 50%;
+    padding: 10px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+* {
+    box-sizing: border-box;
 }
 </style>
 </head>
@@ -60,79 +112,433 @@ body {
 <button id="generateQuestions">Generate</button>
 <button id="resetButton">Reset</button>
 <button id="revealButton">Reveal</button>
+<div class ="rowQuestions">
+    <div class ="columnQuestions">
+        <div id="gridContainer">
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordA">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerA">Answer</p>
+        </div>
+        </div>
 
-<div id="gridContainer">
-<div class ="questionAll">
-<button class="questionBox"><p id="wordA">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerA">Answer</p>
-</div>
-</div>
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordB">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerB">Answer</p>
+        </div>
+        </div>
 
-<div class ="questionAll">
-<button class="questionBox"><p id="wordB">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerB">Answer</p>
-</div>
-</div>
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordC">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerC">Answer</p>
+        </div>
+        </div>
 
-<div class ="questionAll">
-<button class="questionBox"><p id="wordC">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerC">Answer</p>
-</div>
-</div>
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordD">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerD">Answer</p>
+        </div>
+        </div>
 
-<div class ="questionAll">
-<button class="questionBox"><p id="wordD">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerD">Answer</p>
-</div>
-</div>
-
-<div class ="questionAll">
-<button class="questionBox"><p id="wordE">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerE">Answer</p>
-</div>
-</div>
-
-<div class ="questionAll">
-<button class="questionBox"><p id="wordF">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerF">Answer</p>
-</div>
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordE">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerE">Answer</p>
+        </div>
+        </div>
+    </div>
 </div>
 
-<div class ="questionAll">
-<button class="questionBox"><p id="wordG">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerG">Answer</p>
-</div>
+<div class ="rowQuestions">
+    <div class ="columnQuestions">
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordF">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerF">Answer</p>
+        </div>
+        </div>
+
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordG">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerG">Answer</p>
+        </div>
+        </div>
+
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordH">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerH">Answer</p>
+        </div>
+        </div>
+
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordI">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerI">Answer</p>
+        </div>
+        </div>
+
+        <div class ="questionAll">
+        <button class="questionBox"><p id="wordJ">Question</p></button>
+        <div class="panel">
+          <p class="answerBox" id="answerJ">Answer</p>
+        </div>
+        </div>
+        </div>
+    </div>
 </div>
 
-<div class ="questionAll">
-<button class="questionBox"><p id="wordH">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerH">Answer</p>
-</div>
-</div>
-
-<div class ="questionAll">
-<button class="questionBox"><p id="wordI">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerI">Answer</p>
-</div>
+<!-- Learning Tab -->
+<div class = "tab">
+    <button class = "tabLinks" onclick="openTab(event,'Lesson1')">Lesson 1</button>
+    <button class = "tabLinks" onclick="openTab(event,'Lesson2')">Lesson 2</button>
+    <button class = "tabLinks" onclick="openTab(event,'Lesson3')">Lesson 3</button>
+    <button class = "tabLinks" onclick="openTab(event,'Lesson4')">Lesson 4</button>
 </div>
 
-<div class ="questionAll">
-<button class="questionBox"><p id="wordJ">Question</p></button>
-<div class="panel">
-  <p class="answerBox" id="answerJ">Answer</p>
+<!--Lesson 1-->
+<div id="Lesson1" class="tabContent">
+    <div class="row">
+      <div class="column">
+        <p>新しい Atarashii – New</p>
+        <p>早い Hayai – Early</p> 
+        <p>遅い Osoi – Late/slow</p>
+        <p>速い Hayai – Fast</p> 
+        <p>可愛い Kawaii - Cute</p> 
+        <p>強い Tsuyoi – Strong</p> 
+        <p>弱い Yowai – Weak</p> 
+        <p>古い Furui – Old</p> 
+        <p>暑い Atsui – Hot (weather)</p> 
+        <p>熱い Atsui – Hot (in general)</p> 
+        <p>寒い Samui – Cold (weather)</p> 
+        <p>冷たい Tsumetai – Cold (in general)</p> 
+        <p>嬉しい Ureshii – Happy</p>
+        <p>悲しい Kanashii – Sad</p> 
+        <p>遠い Tōi – Far</p> 
+        <p>近い Chikai – Nearby/close</p> 
+        <p>美しい Utsukushii – Beautiful</p> 
+        <p>醜い Minikui – Ugly</p> 
+        <p>忙しい Isogashii – Busy</p> 
+        <p>楽しい Tanoshii – Fun</p>
+        <p>美味しい Oishii – Delicious</p> 
+        <p>不味い Mazui – Nasty</p> 
+        <p>優しい Yasashii – Kind</p> 
+        <p>厳しい Kibishii – Strict/harsh</p> 
+        <p>良い Yoi - Good</p> 
+        <p>悪い Warui - Bad</p> 
+        <p>素晴らしい Subarashii - Wonderful</p> 
+        <p>凄い Sugoi - Amazing</p> 
+        <p>汚い Kitanai - Dirty</p> 
+        <p>明るい Akarui - Bright</p> 
+        <p>広い Hiroi - Wide</p> 
+        <p>狭い Semai - Narrow</p> 
+        <p>暗い Kurai - Dark</p> 
+        <p>怖い Kowai - Scary</p> 
+        <p>低い Hikui - Low</p> 
+        <p>長い Nagai - Long</p> 
+        <p>短い Mijikai - Short (length)</p> 
+        <p>正しい Tadashii - Correct</p>
+        <p>寂しい Sabishii - Lonely</p>
+        <p>痛い Itai - Painful</p> 
+        <p>易しい Yasashii - Easy</p>
+        <p>難しい Muzukashii - Difficult</p> 
+        <p>背が低い Se ga hikui - Short (height)</p>
+        <p>軽い Karui - Light</p> 
+        <p>重い Omoi - Heavy</p> 
+        <p>苦い Nigai - Bitter</p> 
+        <p>辛い Karai - Spicy</p> 
+        <p>塩辛い Shiokarai - Salty</p>
+      </div>
+      <div class="column">
+        <p>本 Hon – Book</p>
+        <p>映画 Eiga – Movie</p>
+        <p>海 Umi – Sea</p>
+        <p>光 Hikari – Light</p>
+        <p>建物 Tatemono – Building</p>
+        <p>ウサギ（兎） Usagi - Rabbit/bunny</p>
+        <p>クマ（熊）Kuma - Bear</p>
+        <p>歯茎 Haguki - Gums</p>
+        <p>携帯 Keitai - Cellphone</p>
+        <p>手 Te - Hand(s)</p>
+        <p>水 Mizu - Water</p>
+        <p>冬 Fuyu - Winter</p>
+        <p>公園 Kōen - Park </p>
+        <p>景色 Keshiki - Scenery</p> 
+        <p>ラーメン Rāmen - Ramen</p> 
+        <p>仕事 Shigoto - Job/work</p> 
+        <p>猫 Neko - Cat</p>
+        <p>川 Kawa - River</p> 
+        <p>冗談 Jōdan - Joke</p> 
+        <p>影響 Eikyō - Influence/effect</p>
+        <p>信号 Shingō - Traffic light</p>
+        <p>リンゴ Ringo - Apple</p> 
+        <p>パソコン Pasokon - Computer</p>
+        <p>給料 Kyūryō - Salary/wages</p>
+        <p>城 Shiro - Castle</p> 
+        <p>葉っぱ Happa - Leaves</p>
+        <p>タイヤ Taiya - Tire</p> 
+        <p>味 Aji - Flavor</p> 
+        <p>扱い Atsukai - Handling</p>
+        <p>品質 Hinshitsu - Quality</p> 
+        <p>空気 Kūki - Air</p> 
+        <p>スコア Sukoa - Score</p> 
+        <p>足 Ashi - Foot/feet</p>
+        <p>虫 Mushi - Bug</p>
+        <p>道 Michi - Street/road</p> 
+        <p>答え Kotae - Answer</p> 
+        <p>試験 Shiken - Exam</p>
+        <p>問題 Mondai - Problem/question</p>
+      </div>
+    </div>
 </div>
+<!--Lesson 2-->
+<div id="Lesson2" class="tabContent">
+    <div class="row">
+      <div class="column">
+        <p>Tera 寺 – Buddhist temple</p>　
+        <p>Jijitsu 事実 – Fact</p>
+        <p>Kōmori コウモリ – Bat</p>
+        <p>Tori 鳥 – Bird</p>
+        <p>Gakusei 学生 – Student</p>
+        <p>Kankokujin 韓国人 – Korean</p>
+        <p>Shodō 書道 – Calligraphy</p>
+        <p>Geijutsu 芸術 – Art</p>
+        <p>Baka 馬鹿 – Idiot</p>
+        <p>Neko 猫 – Cat</p>
+        <p>Pātii パーティー – Party</p>
+        <p>Kaishi 開始 – Start/beginning</p>
+        <p>Dōbutsuen 動物園 – Zoo</p>
+        <p>Hikiwake 引き分け – A tie</p>
+        <p>Kawauso カワウソ – Otter</p>
+        <p>Furansugo フランス語 – French</p>
+        <p>Gakkō 学校 – School</p>
+        <p>Seikai 正解 – Correct answer</p>
+        <p>Wakusei 惑星 – Planet</p>
+        <p>Meiōsei 冥王星 – Pluto</p>
+        <p>Ocha お茶 – Tea</p>
+        <p>Daihyō 代表 – Representative</p>
+        <p>Gen’in 原因 – Cause</p>
+        <p>Tabako 煙草・タバコ・たばこ – Tobacco</p>
+        <p>Kodomo 子供 – Child(ren)</p>
+        <p>Pen ペン – Pen</p> 
+      </div>
+      <div class="column">
+        <p>Kujira 鯨 – Whale</p>
+        <p>Sakana 魚 – Fish</p>
+        <p>Mogi shiken 模擬試験 – Mock exam</p>
+        <p>Mizu 水 – Water</p>
+        <p>Jikan 時間 – Time</p>
+        <p>Ganjitsu 元日 – New Year’s Day</p>
+        <p>Getsuyōbi 月曜日 – Monday</p>
+        <p>Suiyōbi 水曜日 – Wednesday</p>
+        <p>Kaishibi 開始日 – Start date</p>
+        <p>Kinō 昨日 – Yesterday</p>
+        <p>Ashita/asu 明日 – Tomorrow</p>
+        <p>Yoru 夜 – Night</p>
+        <p>Watashi 私 – I </p>
+        <p>Boku 僕 – I (male)</p>
+        <p>Kare 彼 – He </p>
+        <p>Kanojo 彼女 – She </p>
+        <p>Kore これ – This </p>
+        <p>Sore それ – That </p>
+        <p>Sono その – That (adj.)</p>
+        <p>Are あれ – That (over there)</p>
+        <p>Koko ここ – Here </p>
+        <p>Kimu キム – Kim</p>
+        <p>Pikachū ピカチュウ – Pikachu</p>
+        <p>A あ – Ah</p>
+      </div>
+    </div>
 </div>
+<!--Lesson 3-->
+<div id="Lesson3" class="tabContent">
+        <div class="row">
+      <div class="column">
+        <p>Nihonjin 日本人 – Japanese person</p> 
+        <p>Chūgokujin 中国人 – Chinese person</p>  
+        <p>Taiwanjin 台湾人 – Taiwanese person</p>  
+        <p>O-isha-san お医者さん – Doctor</p>  
+        <p>Shōgakusei 小学生 – Elementary student</p>
+        <p>Chūgakusei 中学生 – Junior high student</p>  
+        <p>Kōkōsei  高校生 – High school student</p>
+        <p>Daigakusei 大学生 – College/university student</p>  
+        <p>Giin 議員 – Legislator</p>  
+        <p>Eiyū 英雄 – Hero</p>  
+        <p>Nisemono 偽物 – A fake</p>  
+        <p>Machigai 間違い - Mistake</p>
+        <p>Jikan 時間 – Time</p>  
+        <p>Hebi 蛇 – Snake</p>  
+        <p>Sotsugyōshiki 卒業式 – Graduation ceremony</p>
+        <p>Kaigō 会合 – Assembly</p>
+        <p>Nyūsu ニュース – News</p>  
+        <p>Tero テロ – Terrorism</p>  
+        <p>Ōkami オオカミ – Wolf</p>  
+        <p>Uso 嘘 – Lie</p>  
+        <p>Mogi shiken 模擬試験 – Mock exam</p>  
+        <p>Yasumi 休み – Rest/absence/holiday</p>
+        <p>Sō そう – So</p>
+        <p>Mō sugu もうすぐ – Soon</p>
+        <p>Etto えっと – Uh/um</p>
+        <p>Hai はい – Yes</p>
+        <p>Iie いいえ – No</p>   
+      </div>
+      <div class="column">
+        <p>Goendama 五円玉 – five-yen coin</p>
+        <p>Jōdan 冗談 – Joke</p>
+        <p>Kiseki 奇跡 – Miracle</p>
+        <p>Shokudō 食堂 – Diner</p>
+        <p>Sensei 先生 – Teacher</p>
+        <p>Jūmin 住民 – Resident</p>
+        <p>O-hiru お昼 – Lunch</p>
+        <p>Kōhii コーヒー – Coffee</p>
+        <p>Onigiri お握り – Onigiri</p>
+        <p>Saru 猿 – Monkey</p>
+        <p>Hitori 1人 – One person</p>
+        <p>Futari 2人 – Two people</p>
+        <p>Otoko 男 – Man</p>
+        <p>Otoko-no-ko 男の子 – Boy</p>
+        <p>Keisatsukan 警察官 – Police officer</p>
+        <p>Shūryōbi 終了日 – End date</p>
+        <p>Nichiyōbi 日曜日 – Sunday</p>
+        <p>Mokuyōbi 木曜日 – Thursday</p>
+        <p>Kinō 昨日 – Yesterday</p>
+        <p>Ashita/asu 明日 – Tomorrow</p>
+        <p>Watashi 私 – I</p>
+        <p>Kare 彼 – He</p>
+        <p>Kanojo 彼女 – She</p>
+        <p>Kore これ – This</p>
+        <p>Sore それ – That</p>
+        <p>Are あれ – That (over there) </p>
+        <p>Anoあの – That (over there) (adj.) </p>
+        <p>Soko そこ – There</p>
+        <p>Tanaka-san 田中さん – Mr./Ms. Tanaka</p>
+        <p>Oda-san 小田さん – Mr./Ms. Oda</p>
+        <p>Rii-san リーさん  - Mr./Ms. Lee</p>
+        <p>Kenta-kun 健太君 – Kenta-kun</p>
+      </div>
+    </div>
 </div>
 
+<!--Lesson 4-->
+<div id="Lesson4" class="tabContent">
+        <div class="row">
+      <div class="column">
+        <p>病院 Byōin – Hospital </p>
+        <p>チェコ語 Chekogo – Czech language</p>
+        <p>図書館 – Toshokan – Library </p>
+        <p>子供 Kodomo – Child/children</p>
+        <p>歯 Ha – Tooth/teeth</p>
+        <p>月 Tsuki - Moon</p>
+        <p>人 Hito – Person</p>
+        <p>建物 Tatemono - Building</p>
+        <p>気持ち Kimochi – Feeling(s)</p>
+        <p>酸素 Sanso – Oxygen </p>
+        <p>資格 Shikaku - Qualifications</p>
+        <p>傾斜 Keisha – Slant/slope</p>
+        <p>歌手 Kashu – Singer </p>
+        <p>ハンドバッグ Handobaggu - Handbug</p>
+        <p>ビジネス  Bijinesu – Business </p>
+        <p>問題 Mondai – Question/problem</p>
+        <p>登録 Tōroku – Registration </p>
+        <p>町 Machi – Town </p>
+        <p>スタッフ Sutaffu - Staff</p>
+        <p>野菜 Yasai - Vegetables</p>
+        <p>英語 Eigo – English language</p>
+        <p>昔 Mukashi – Olden days</p>
+        <p>簡易ベッド Kan’i beddo – Bunk bed  </p>
+        <p>ルール Rūru – Rule(s) </p>
+        <p>兵士 Heishi - Soldier</p>
+        <p>文章 Bunshō – Sentence </p>
+        <p>初恋 Hatsukoi – First love </p>
+        <p>ゲーム Gēmu – Game </p>
+        <p>私 Wata(ku)shi – I </p>
+        <p>僕 Boku – I (male) </p>
+        <p>彼 Kare – He </p>
+        <p>彼ら Karera – They </p>
+        <p>この Kono – This (adj.)</p>
+        <p>それ Sore – That (n.)</p>
+        <p>あれ Are – That (n.)</p>
+        <p>あの Ano – That (adj.)</p>
+        <p>もはや Mohaya - No more </p>
+        <p>全然 Zenzen – At all </p>
+        <p>別に Betsu ni – Not particularly </p>
+        <p>特に Toku ni – Especially</p>
+        <p>まだ Mada – Yet/still </p>
+        <p>少しも Sukushi mo – Not one bit </p>
+        <p>正確だ Seikaku da – To be accurate</p>
+        <p>特殊だ Tokushu da – To be peculiar</p>
+        <p>微妙だ Bimyō da – To be subtle</p>
+        <p>明確だ  Meikaku da – To be precise</p>
+        <p>勇敢だ Yūkan da – To be brave</p>
+        <p>スマートだ Sumāto da – To be stylish</p>
+        <p>リアルだ Riaru da – To be realistic</p>
+        <p>好きだ Suki da – To like</p>
+        <p>嫌いだ Kirai da – To hate</p>
+        <p>フォーマルだ Fōmaru da – To be formal</p>
+      </div>
+      <div class="column">
+        <p>静かだ Shizuka da – To be quiet </p>
+        <p>安全だ Anzen da – To be safe </p>
+        <p>健康だ Kenkō da – To be healthy </p>
+        <p>元気だ Genki da – To be lively </p>
+        <p>簡単だ Kantan da – To be easy</p>
+        <p>綺麗だ Kirei da – To be pretty </p>
+        <p>大切だ Taisetsu da – To be indispensable </p>
+        <p>真面目だ Majime da – To be serious </p>
+        <p>ユニークだ Yuniiku da – To be unique </p>
+        <p>モダンだ Modan da – To be modern </p>
+        <p>駄目だ Dame da – To be no good </p>
+        <p>馬鹿だ Baka da – To be stupid/dumb </p>
+        <p>重要だ Jūyō da – To be important </p>
+        <p>変だ Hen da – To be strange </p>
+        <p>優秀だ Yūshū da – To excellent at </p>
+        <p>大事だ Daiji da – To be valuable </p>
+        <p>有害だ Yūgai da – To be harmful </p>
+        <p>平気だ Heiki da – To be cool/calm</p>
+        <p>必要だ Hitsuyō da – To be necessary </p>
+        <p>急だ Kyū da  - To be urgent/steep/rapid </p>
+        <p>カジュアルだ Kajuaru da – To be casual </p>
+        <p>有名だ Yūmei da – To be famous </p>
+        <p>苦手だ Nigate da – To be poor at</p>
+        <p>高価だ Kōka da – To be high price </p>
+        <p>容易だ Yōi da – To be simple </p>
+        <p>稀だ Mare da – To be rare</p>
+        <p>危険だ Kiken da – To be dangerous </p>
+        <p>複雑だ Fukuzatsu da – To be complicated</p>
+        <p>熱心だ Nesshin da – To be enthusiastic </p>
+        <p>適切だ Tekisetsu da – To be appropriate </p>
+        <p>失礼だ Shitsurei da – To be rude </p>
+        <p>多忙だ Tabō da – To be very busy </p>
+        <p>冷静だ Reisei da – To be calm/composed</p>
+        <p>特別だ Tokubetsu da – To be special </p>
+        <p>親切だ Shinsetsu da – To be kind </p>
+        <p>公平だ Kōhei da – To be fair </p>
+        <p>最高だ Saikō da – To be the best</p>
+        <p>自由だ Jiyū da – To be free </p>
+        <p>新鮮だ Shinsen da – To be fresh </p>
+        <p>得意だ Tokui da – To be good at </p>
+        <p>自然だ Shizen da – To be nature </p>
+        <p>不自然だ Fushizen da – To be unnatural </p>
+        <p>残酷だ Zankoku da – To be harsh/cruel  </p>
+        <p>切実だ Setsujitsu da – To be earnest </p>
+        <p>詳細だ Shōsai da – To be detailed </p>
+        <p>未熟だ  Mijuku da – To be inexperienced </p>
+        <p>簡易だ Kan’i da – To be simplistic  </p>
+        <p>慎重だ Shinchō da – To be prudent </p>
+        <p>便利だ Benri da – To be convenient </p>
+        <p>不便だ Fuben da – To be inconvenient </p>
+        <p>困難だ Kon’nan da – To be difficult </p>
+        <p>不思議だ Fushigi da – To be mysterious </p>
+        <p>安易だ An’i da – To be easy(-going)  </p>
+        <p>ハンサムだ Hansamu da – To be handsome</p>
+        <p>シックだ Shikku da – To be chic </p>
+      </div>
+    </div>
+</div>
 
 <script>
 //Array of Words
@@ -459,6 +865,21 @@ rev.addEventListener("click", function() {
             } 
         }
     });
+
+//Tab Script
+function openTab(evt, lessonName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabContent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tabLinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(lessonName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
 </script>
 
 </body>
