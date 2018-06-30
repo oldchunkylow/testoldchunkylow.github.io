@@ -1,0 +1,33 @@
+{
+    "Chapter1": {
+        "items": [{
+            "English Word": "EnglishTest1",
+            "Kanji": "JapTest1",
+            "Hiragana": "HiraganaTest1"
+        }, {
+            "English Word": "EnglishTest2",
+            "Kanji": "JapTest2",
+            "Hiragana": "HiraganaTest2"
+        }, {
+            "English Word": "EnglishTest3",
+            "Kanji": "JapTest3",
+            "Hiragana": "HiraganaTest3"
+        }, {
+            "English Word": "EnglishTest4",
+            "Kanji": "JapTest4",
+            "Hiragana": "HiraganaTest4"
+        }, {
+            "English Word": "EnglishTest5",
+            "Kanji": "JapTest5",
+            "Hiragana": "HiraganaTest5"
+        }, {
+            "English Word": "EnglishTest6",
+            "Kanji": "JapTest6",
+            "Hiragana": "HiraganaTest6"
+        }, {
+            "English Word": "EnglishTest7",
+            "Kanji": "JapTest7",
+            "Hiragana": "HiraganaTest7"
+        }]
+    }
+}
