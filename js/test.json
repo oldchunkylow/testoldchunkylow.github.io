@@ -1,4 +1,4 @@
-
+{
     "Chapter1": {
         "items": [{
             "English Word": "EnglishTest1",
@@ -30,3 +30,4 @@
             "Hiragana": "HiraganaTest7",
         }]
     }
+}
