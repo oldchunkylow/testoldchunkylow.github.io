@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japanese Learning</title>
+<header>
+    <link rel="stylesheet" href="css/styles.css">
+</header>
+
+
+
+<body>
+
+<div class="page-wrap">
+  <h1>Japanese Learning</h1>
+  <div id="words-container"></div>
+</div>
+<table class="navigator"> 
+    <tr class="tab">
+        <th><button class="tablinks" onclick="openTab(event, 'noun')">Noun</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'adjectives')">Adjectives</button></th>
+    </tr>
+</table>
+    
+
+
+    
+<script id="wordsTemplate" type="text/x-handlebars-template">
+<div id="noun" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th>Kanji</th>
+            <th>Hiragana</th>
+        </tr>
+        {{#each Noun.items}}
+            <tr>
+                <td>{{EnglishWord}}</td>
+                <td>{{Hiragana}}</td>
+                <td>{{Kanji}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+<div id="adjectives" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th>Kanji</th>
+            <th>Hiragana</th>
+        </tr>
+        {{#each Adjectives.items}}
+            <tr>
+                <td>{{EnglishWord}}</td>
+                <td>{{Hiragana}}</td>
+                <td>{{Kanji}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+</script>
+
+    
+    <script src="js/handlebars.js"></script>    
+    <script src="js/main3.js"></script>
+    
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+</body>
+
+</html>
