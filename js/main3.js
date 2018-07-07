@@ -37,9 +37,9 @@ qButton.addEventListener("click",function(){
 
 function generateQ(wordsData){
         var selectWords = []
-        var nounList = wordsData.Noun.items;
+        var nounList = wordsData.Test.items;
         //randomly pick 10 words
-        while(selectWords.length < 2){
+        while(selectWords.length < 10){
             var randomWord = nounList[Math.floor(Math.random() * nounList.length)]
             if(selectWords.indexOf(randomWord) > -1) continue;
             selectWords[selectWords.length] = randomWord;
@@ -49,6 +49,30 @@ function generateQ(wordsData){
     
         document.getElementById("questionB").innerHTML = selectWords[1].EnglishWord;
         document.getElementById("answerB").innerHTML = selectWords[1].Kanji + "<br>" + selectWords[1].Hiragana;
+    
+        document.getElementById("questionC").innerHTML = selectWords[2].EnglishWord;
+        document.getElementById("answerC").innerHTML = selectWords[2].Kanji + "<br>" + selectWords[2].Hiragana;
+    
+        document.getElementById("questionD").innerHTML = selectWords[3].EnglishWord;
+        document.getElementById("answerD").innerHTML = selectWords[3].Kanji + "<br>" + selectWords[3].Hiragana;
+    
+        document.getElementById("questionE").innerHTML = selectWords[4].EnglishWord;
+        document.getElementById("answerE").innerHTML = selectWords[4].Kanji + "<br>" + selectWords[4].Hiragana;
+    
+        document.getElementById("questionF").innerHTML = selectWords[5].EnglishWord;
+        document.getElementById("answerF").innerHTML = selectWords[5].Kanji + "<br>" + selectWords[5].Hiragana;
+    
+        document.getElementById("questionG").innerHTML = selectWords[6].EnglishWord;
+        document.getElementById("answerG").innerHTML = selectWords[6].Kanji + "<br>" + selectWords[6].Hiragana;
+    
+        document.getElementById("questionH").innerHTML = selectWords[7].EnglishWord;
+        document.getElementById("answerH").innerHTML = selectWords[7].Kanji + "<br>" + selectWords[7].Hiragana;
+    
+        document.getElementById("questionI").innerHTML = selectWords[8].EnglishWord;
+        document.getElementById("answerI").innerHTML = selectWords[8].Kanji + "<br>" + selectWords[8].Hiragana;
+    
+        document.getElementById("questionJ").innerHTML = selectWords[9].EnglishWord;
+        document.getElementById("answerJ").innerHTML = selectWords[9].Kanji + "<br>" + selectWords[9].Hiragana;
 }
 
 /*
