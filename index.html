@@ -1,980 +1,234 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Japanese Learnings</title>
-<style>
-
-body {
-    text-align: center;
-}
-
-/*
-#gridContainer {
-  display: grid;
-  grid-column-gap:50px;
-  grid-row-gap:8px;
-  grid-template-columns: auto auto;
-}
-*/
-
-.columnQuestions {
-    text-align: left;
-    float: left;
-    width: 50%;
-    padding: 10px;
-}
-
-/* Clear floats after the columns */
-.rowQuestions:after {
-    content: "";
-    display: table;
-    clear: both;
-}
+<title>Japanese Learning</title>
+<header>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</header>
 
 
-.questionBox {
-    width:150px;
-    background-color: #3899FA;
-    color: #444;
-    cursor: pointer;
-    padding: 5px 0px 5px 0px;
-    border: none;
-    outline: none;
-    font-size: 15px;
-    transition: 0.4s;
-}
 
-.active, .questionBox:hover {
-    background-color: #3899FA;
-}
-
-.panel {
-    text-align: center;
-    display: none;
-    background-color: white;
-    overflow: hidden;
-    background-color: #E4E4E5;
-    width:150px;
-}
-
-.tab {
-    overflow: hidden;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
-}
-
-.tab button {
-    background-color: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    transition: 0.3s;
-}
-
-.tab button:hover {
-    background-color: #ddd;
-}
-
-.tab button.active {
-    background-color: #ccc;
-}
-
-.tabContent {
-    display: none;
-    padding: 6px 12px;
-    border: 1px solid #ccc;
-    border-top: none;
-}
-
-.column {
-    text-align: left;
-    float: left;
-    width: 50%;
-    padding: 10px;
-}
-
-/* Clear floats after the columns */
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-* {
-    box-sizing: border-box;
-}
-</style>
-</head>
 <body>
-
-
-<button id="generateQuestions">Generate</button>
-<button id="resetButton">Reset</button>
-<button id="revealButton">Reveal</button>
-<div class ="rowQuestions">
-    <div class ="columnQuestions">
-        <div id="gridContainer">
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordA">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerA">Answer</p>
-        </div>
-        </div>
-
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordB">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerB">Answer</p>
-        </div>
-        </div>
-
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordC">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerC">Answer</p>
-        </div>
-        </div>
-
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordD">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerD">Answer</p>
-        </div>
-        </div>
-
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordE">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerE">Answer</p>
-        </div>
-        </div>
-    </div>
+<div class="page-wrap">
+  <h1>Japanese Learning</h1>
+</div>
+    
+<button type="button" id="generateQ" class="btn">Generate</button>
+<button id="showButton" type="button" class="btn btn-success">Show</button>
+<button id="hideButton" type="button" class="btn btn-warning">Hide</button> 
+<table class="testBox"> 
+    <tr>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse1"><div class="questionPanel"><button id="questionA" class="questionBox">Question</button></div></a>
+            <div id="collapse1" class="panel-collapse collapse"><div id="answerA" class ="answerPanel">Answer</div></div>
+        </td>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse2"><div class="questionPanel"><button id="questionB" class="questionBox">Question</button></div></a>
+            <div id="collapse2" class="panel-collapse collapse"><div id="answerB" class ="answerPanel">Answer</div></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse3"><div class="questionPanel"><button id="questionC" class="questionBox">Question</button></div></a>
+            <div id="collapse3" class="panel-collapse collapse"><div id="answerC" class ="answerPanel">Answer</div></div>
+        </td>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse4"><div class="questionPanel"><button id="questionD" class="questionBox">Question</button></div></a>
+            <div id="collapse4" class="panel-collapse collapse"><div id="answerD" class ="answerPanel">Answer</div></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse5"><div class="questionPanel"><button id="questionE" class="questionBox">Question</button></div></a>
+            <div id="collapse5" class="panel-collapse collapse"><div id="answerE" class ="answerPanel">Answer</div></div>
+        </td>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse6"><div class="questionPanel"><button id="questionF" class="questionBox">Question</button></div></a>
+            <div id="collapse6" class="panel-collapse collapse"><div id="answerF" class ="answerPanel">Answer</div></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse7"><div class="questionPanel"><button id="questionG" class="questionBox">Question</button></div></a>
+            <div id="collapse7" class="panel-collapse collapse"><div id="answerG" class ="answerPanel">Answer</div></div>
+        </td>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse8"><div class="questionPanel"><button id="questionH" class="questionBox">Question</button></div></a>
+            <div id="collapse8" class="panel-collapse collapse"><div id="answerH" class ="answerPanel">Answer</div></div>
+        </td>
+    </tr>
+    <tr>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse9"><div class="questionPanel"><button id="questionI" class="questionBox">Question</button></div></a>
+            <div id="collapse9" class="panel-collapse collapse"><div id="answerI" class ="answerPanel">Answer</div></div>
+        </td>
+        <td class="questionRow">
+            <a data-toggle="collapse" href="#collapse10"><div class="questionPanel"><button id="questionJ" class="questionBox">Question</button></div></a>
+            <div id="collapse10" class="panel-collapse collapse"><div id="answerJ" class ="answerPanel">Answer</div></div>
+        </td>
+    </tr>
+</table>
+    
+<br>
+    
+<table class="navigator"> 
+    <tr class="tab">
+        <th><button class="tablinks" onclick="openTab(event, 'noun')">Nouns</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'adjectives')">Adjectives</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'expressions')">Expressions</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'adverbs')">Adverbs</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'uverbs')">U-Verbs</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'ruverbs')">Ru-Verbs</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'pronoun')">Pronoun</button></th>
+    </tr>
+</table>
+<div id="words-container"></div>   
+    
+<script id="wordsTemplate" type="text/x-handlebars-template">
+<div id="noun" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Noun.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+<div id="adjectives" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Adjectives.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
 </div>
 
-<div class ="rowQuestions">
-    <div class ="columnQuestions">
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordF">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerF">Answer</p>
-        </div>
-        </div>
-
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordG">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerG">Answer</p>
-        </div>
-        </div>
-
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordH">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerH">Answer</p>
-        </div>
-        </div>
-
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordI">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerI">Answer</p>
-        </div>
-        </div>
-
-        <div class ="questionAll">
-        <button class="questionBox"><p id="wordJ">Question</p></button>
-        <div class="panel">
-          <p class="answerBox" id="answerJ">Answer</p>
-        </div>
-        </div>
-        </div>
-    </div>
+<div id="expressions" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Expressions.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
 </div>
 
-<!-- Learning Tab -->
-<div class = "tab">
-    <button class = "tabLinks" onclick="openTab(event,'Lesson1')">Lesson 1</button>
-    <button class = "tabLinks" onclick="openTab(event,'Lesson2')">Lesson 2</button>
-    <button class = "tabLinks" onclick="openTab(event,'Lesson3')">Lesson 3</button>
-    <button class = "tabLinks" onclick="openTab(event,'Lesson4')">Lesson 4</button>
+<div id="adverbs" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Adverbs.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
 </div>
 
-<!--Lesson 1-->
-<div id="Lesson1" class="tabContent">
-    <div class="row">
-      <div class="column">
-        <p>新しい Atarashii – New</p>
-        <p>早い Hayai – Early</p> 
-        <p>遅い Osoi – Late/slow</p>
-        <p>速い Hayai – Fast</p> 
-        <p>可愛い Kawaii - Cute</p> 
-        <p>強い Tsuyoi – Strong</p> 
-        <p>弱い Yowai – Weak</p> 
-        <p>古い Furui – Old</p> 
-        <p>暑い Atsui – Hot (weather)</p> 
-        <p>熱い Atsui – Hot (in general)</p> 
-        <p>寒い Samui – Cold (weather)</p> 
-        <p>冷たい Tsumetai – Cold (in general)</p> 
-        <p>嬉しい Ureshii – Happy</p>
-        <p>悲しい Kanashii – Sad</p> 
-        <p>遠い Tōi – Far</p> 
-        <p>近い Chikai – Nearby/close</p> 
-        <p>美しい Utsukushii – Beautiful</p> 
-        <p>醜い Minikui – Ugly</p> 
-        <p>忙しい Isogashii – Busy</p> 
-        <p>楽しい Tanoshii – Fun</p>
-        <p>美味しい Oishii – Delicious</p> 
-        <p>不味い Mazui – Nasty</p> 
-        <p>優しい Yasashii – Kind</p> 
-        <p>厳しい Kibishii – Strict/harsh</p> 
-        <p>良い Yoi - Good</p> 
-        <p>悪い Warui - Bad</p> 
-        <p>素晴らしい Subarashii - Wonderful</p> 
-        <p>凄い Sugoi - Amazing</p> 
-        <p>汚い Kitanai - Dirty</p> 
-        <p>明るい Akarui - Bright</p> 
-        <p>広い Hiroi - Wide</p> 
-        <p>狭い Semai - Narrow</p> 
-        <p>暗い Kurai - Dark</p> 
-        <p>怖い Kowai - Scary</p> 
-        <p>低い Hikui - Low</p> 
-        <p>長い Nagai - Long</p> 
-        <p>短い Mijikai - Short (length)</p> 
-        <p>正しい Tadashii - Correct</p>
-        <p>寂しい Sabishii - Lonely</p>
-        <p>痛い Itai - Painful</p> 
-        <p>易しい Yasashii - Easy</p>
-        <p>難しい Muzukashii - Difficult</p> 
-        <p>背が低い Se ga hikui - Short (height)</p>
-        <p>軽い Karui - Light</p> 
-        <p>重い Omoi - Heavy</p> 
-        <p>苦い Nigai - Bitter</p> 
-        <p>辛い Karai - Spicy</p> 
-        <p>塩辛い Shiokarai - Salty</p>
-      </div>
-      <div class="column">
-        <p>本 Hon – Book</p>
-        <p>映画 Eiga – Movie</p>
-        <p>海 Umi – Sea</p>
-        <p>光 Hikari – Light</p>
-        <p>建物 Tatemono – Building</p>
-        <p>ウサギ（兎） Usagi - Rabbit/bunny</p>
-        <p>クマ（熊）Kuma - Bear</p>
-        <p>歯茎 Haguki - Gums</p>
-        <p>携帯 Keitai - Cellphone</p>
-        <p>手 Te - Hand(s)</p>
-        <p>水 Mizu - Water</p>
-        <p>冬 Fuyu - Winter</p>
-        <p>公園 Kōen - Park </p>
-        <p>景色 Keshiki - Scenery</p> 
-        <p>ラーメン Rāmen - Ramen</p> 
-        <p>仕事 Shigoto - Job/work</p> 
-        <p>猫 Neko - Cat</p>
-        <p>川 Kawa - River</p> 
-        <p>冗談 Jōdan - Joke</p> 
-        <p>影響 Eikyō - Influence/effect</p>
-        <p>信号 Shingō - Traffic light</p>
-        <p>リンゴ Ringo - Apple</p> 
-        <p>パソコン Pasokon - Computer</p>
-        <p>給料 Kyūryō - Salary/wages</p>
-        <p>城 Shiro - Castle</p> 
-        <p>葉っぱ Happa - Leaves</p>
-        <p>タイヤ Taiya - Tire</p> 
-        <p>味 Aji - Flavor</p> 
-        <p>扱い Atsukai - Handling</p>
-        <p>品質 Hinshitsu - Quality</p> 
-        <p>空気 Kūki - Air</p> 
-        <p>スコア Sukoa - Score</p> 
-        <p>足 Ashi - Foot/feet</p>
-        <p>虫 Mushi - Bug</p>
-        <p>道 Michi - Street/road</p> 
-        <p>答え Kotae - Answer</p> 
-        <p>試験 Shiken - Exam</p>
-        <p>問題 Mondai - Problem/question</p>
-      </div>
-    </div>
-</div>
-<!--Lesson 2-->
-<div id="Lesson2" class="tabContent">
-    <div class="row">
-      <div class="column">
-        <p>Tera 寺 – Buddhist temple</p>　
-        <p>Jijitsu 事実 – Fact</p>
-        <p>Kōmori コウモリ – Bat</p>
-        <p>Tori 鳥 – Bird</p>
-        <p>Gakusei 学生 – Student</p>
-        <p>Kankokujin 韓国人 – Korean</p>
-        <p>Shodō 書道 – Calligraphy</p>
-        <p>Geijutsu 芸術 – Art</p>
-        <p>Baka 馬鹿 – Idiot</p>
-        <p>Neko 猫 – Cat</p>
-        <p>Pātii パーティー – Party</p>
-        <p>Kaishi 開始 – Start/beginning</p>
-        <p>Dōbutsuen 動物園 – Zoo</p>
-        <p>Hikiwake 引き分け – A tie</p>
-        <p>Kawauso カワウソ – Otter</p>
-        <p>Furansugo フランス語 – French</p>
-        <p>Gakkō 学校 – School</p>
-        <p>Seikai 正解 – Correct answer</p>
-        <p>Wakusei 惑星 – Planet</p>
-        <p>Meiōsei 冥王星 – Pluto</p>
-        <p>Ocha お茶 – Tea</p>
-        <p>Daihyō 代表 – Representative</p>
-        <p>Gen’in 原因 – Cause</p>
-        <p>Tabako 煙草・タバコ・たばこ – Tobacco</p>
-        <p>Kodomo 子供 – Child(ren)</p>
-        <p>Pen ペン – Pen</p> 
-      </div>
-      <div class="column">
-        <p>Kujira 鯨 – Whale</p>
-        <p>Sakana 魚 – Fish</p>
-        <p>Mogi shiken 模擬試験 – Mock exam</p>
-        <p>Mizu 水 – Water</p>
-        <p>Jikan 時間 – Time</p>
-        <p>Ganjitsu 元日 – New Year’s Day</p>
-        <p>Getsuyōbi 月曜日 – Monday</p>
-        <p>Suiyōbi 水曜日 – Wednesday</p>
-        <p>Kaishibi 開始日 – Start date</p>
-        <p>Kinō 昨日 – Yesterday</p>
-        <p>Ashita/asu 明日 – Tomorrow</p>
-        <p>Yoru 夜 – Night</p>
-        <p>Watashi 私 – I </p>
-        <p>Boku 僕 – I (male)</p>
-        <p>Kare 彼 – He </p>
-        <p>Kanojo 彼女 – She </p>
-        <p>Kore これ – This </p>
-        <p>Sore それ – That </p>
-        <p>Sono その – That (adj.)</p>
-        <p>Are あれ – That (over there)</p>
-        <p>Koko ここ – Here </p>
-        <p>Kimu キム – Kim</p>
-        <p>Pikachū ピカチュウ – Pikachu</p>
-        <p>A あ – Ah</p>
-      </div>
-    </div>
-</div>
-<!--Lesson 3-->
-<div id="Lesson3" class="tabContent">
-        <div class="row">
-      <div class="column">
-        <p>Nihonjin 日本人 – Japanese person</p> 
-        <p>Chūgokujin 中国人 – Chinese person</p>  
-        <p>Taiwanjin 台湾人 – Taiwanese person</p>  
-        <p>O-isha-san お医者さん – Doctor</p>  
-        <p>Shōgakusei 小学生 – Elementary student</p>
-        <p>Chūgakusei 中学生 – Junior high student</p>  
-        <p>Kōkōsei  高校生 – High school student</p>
-        <p>Daigakusei 大学生 – College/university student</p>  
-        <p>Giin 議員 – Legislator</p>  
-        <p>Eiyū 英雄 – Hero</p>  
-        <p>Nisemono 偽物 – A fake</p>  
-        <p>Machigai 間違い - Mistake</p>
-        <p>Jikan 時間 – Time</p>  
-        <p>Hebi 蛇 – Snake</p>  
-        <p>Sotsugyōshiki 卒業式 – Graduation ceremony</p>
-        <p>Kaigō 会合 – Assembly</p>
-        <p>Nyūsu ニュース – News</p>  
-        <p>Tero テロ – Terrorism</p>  
-        <p>Ōkami オオカミ – Wolf</p>  
-        <p>Uso 嘘 – Lie</p>  
-        <p>Mogi shiken 模擬試験 – Mock exam</p>  
-        <p>Yasumi 休み – Rest/absence/holiday</p>
-        <p>Sō そう – So</p>
-        <p>Mō sugu もうすぐ – Soon</p>
-        <p>Etto えっと – Uh/um</p>
-        <p>Hai はい – Yes</p>
-        <p>Iie いいえ – No</p>   
-      </div>
-      <div class="column">
-        <p>Goendama 五円玉 – five-yen coin</p>
-        <p>Jōdan 冗談 – Joke</p>
-        <p>Kiseki 奇跡 – Miracle</p>
-        <p>Shokudō 食堂 – Diner</p>
-        <p>Sensei 先生 – Teacher</p>
-        <p>Jūmin 住民 – Resident</p>
-        <p>O-hiru お昼 – Lunch</p>
-        <p>Kōhii コーヒー – Coffee</p>
-        <p>Onigiri お握り – Onigiri</p>
-        <p>Saru 猿 – Monkey</p>
-        <p>Hitori 1人 – One person</p>
-        <p>Futari 2人 – Two people</p>
-        <p>Otoko 男 – Man</p>
-        <p>Otoko-no-ko 男の子 – Boy</p>
-        <p>Keisatsukan 警察官 – Police officer</p>
-        <p>Shūryōbi 終了日 – End date</p>
-        <p>Nichiyōbi 日曜日 – Sunday</p>
-        <p>Mokuyōbi 木曜日 – Thursday</p>
-        <p>Kinō 昨日 – Yesterday</p>
-        <p>Ashita/asu 明日 – Tomorrow</p>
-        <p>Watashi 私 – I</p>
-        <p>Kare 彼 – He</p>
-        <p>Kanojo 彼女 – She</p>
-        <p>Kore これ – This</p>
-        <p>Sore それ – That</p>
-        <p>Are あれ – That (over there) </p>
-        <p>Anoあの – That (over there) (adj.) </p>
-        <p>Soko そこ – There</p>
-        <p>Tanaka-san 田中さん – Mr./Ms. Tanaka</p>
-        <p>Oda-san 小田さん – Mr./Ms. Oda</p>
-        <p>Rii-san リーさん  - Mr./Ms. Lee</p>
-        <p>Kenta-kun 健太君 – Kenta-kun</p>
-      </div>
-    </div>
+<div id="uverbs" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each UVerbs.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
 </div>
 
-<!--Lesson 4-->
-<div id="Lesson4" class="tabContent">
-        <div class="row">
-      <div class="column">
-        <p>病院 Byōin – Hospital </p>
-        <p>チェコ語 Chekogo – Czech language</p>
-        <p>図書館 – Toshokan – Library </p>
-        <p>子供 Kodomo – Child/children</p>
-        <p>歯 Ha – Tooth/teeth</p>
-        <p>月 Tsuki - Moon</p>
-        <p>人 Hito – Person</p>
-        <p>建物 Tatemono - Building</p>
-        <p>気持ち Kimochi – Feeling(s)</p>
-        <p>酸素 Sanso – Oxygen </p>
-        <p>資格 Shikaku - Qualifications</p>
-        <p>傾斜 Keisha – Slant/slope</p>
-        <p>歌手 Kashu – Singer </p>
-        <p>ハンドバッグ Handobaggu - Handbug</p>
-        <p>ビジネス  Bijinesu – Business </p>
-        <p>問題 Mondai – Question/problem</p>
-        <p>登録 Tōroku – Registration </p>
-        <p>町 Machi – Town </p>
-        <p>スタッフ Sutaffu - Staff</p>
-        <p>野菜 Yasai - Vegetables</p>
-        <p>英語 Eigo – English language</p>
-        <p>昔 Mukashi – Olden days</p>
-        <p>簡易ベッド Kan’i beddo – Bunk bed  </p>
-        <p>ルール Rūru – Rule(s) </p>
-        <p>兵士 Heishi - Soldier</p>
-        <p>文章 Bunshō – Sentence </p>
-        <p>初恋 Hatsukoi – First love </p>
-        <p>ゲーム Gēmu – Game </p>
-        <p>私 Wata(ku)shi – I </p>
-        <p>僕 Boku – I (male) </p>
-        <p>彼 Kare – He </p>
-        <p>彼ら Karera – They </p>
-        <p>この Kono – This (adj.)</p>
-        <p>それ Sore – That (n.)</p>
-        <p>あれ Are – That (n.)</p>
-        <p>あの Ano – That (adj.)</p>
-        <p>もはや Mohaya - No more </p>
-        <p>全然 Zenzen – At all </p>
-        <p>別に Betsu ni – Not particularly </p>
-        <p>特に Toku ni – Especially</p>
-        <p>まだ Mada – Yet/still </p>
-        <p>少しも Sukushi mo – Not one bit </p>
-        <p>正確だ Seikaku da – To be accurate</p>
-        <p>特殊だ Tokushu da – To be peculiar</p>
-        <p>微妙だ Bimyō da – To be subtle</p>
-        <p>明確だ  Meikaku da – To be precise</p>
-        <p>勇敢だ Yūkan da – To be brave</p>
-        <p>スマートだ Sumāto da – To be stylish</p>
-        <p>リアルだ Riaru da – To be realistic</p>
-        <p>好きだ Suki da – To like</p>
-        <p>嫌いだ Kirai da – To hate</p>
-        <p>フォーマルだ Fōmaru da – To be formal</p>
-      </div>
-      <div class="column">
-        <p>静かだ Shizuka da – To be quiet </p>
-        <p>安全だ Anzen da – To be safe </p>
-        <p>健康だ Kenkō da – To be healthy </p>
-        <p>元気だ Genki da – To be lively </p>
-        <p>簡単だ Kantan da – To be easy</p>
-        <p>綺麗だ Kirei da – To be pretty </p>
-        <p>大切だ Taisetsu da – To be indispensable </p>
-        <p>真面目だ Majime da – To be serious </p>
-        <p>ユニークだ Yuniiku da – To be unique </p>
-        <p>モダンだ Modan da – To be modern </p>
-        <p>駄目だ Dame da – To be no good </p>
-        <p>馬鹿だ Baka da – To be stupid/dumb </p>
-        <p>重要だ Jūyō da – To be important </p>
-        <p>変だ Hen da – To be strange </p>
-        <p>優秀だ Yūshū da – To excellent at </p>
-        <p>大事だ Daiji da – To be valuable </p>
-        <p>有害だ Yūgai da – To be harmful </p>
-        <p>平気だ Heiki da – To be cool/calm</p>
-        <p>必要だ Hitsuyō da – To be necessary </p>
-        <p>急だ Kyū da  - To be urgent/steep/rapid </p>
-        <p>カジュアルだ Kajuaru da – To be casual </p>
-        <p>有名だ Yūmei da – To be famous </p>
-        <p>苦手だ Nigate da – To be poor at</p>
-        <p>高価だ Kōka da – To be high price </p>
-        <p>容易だ Yōi da – To be simple </p>
-        <p>稀だ Mare da – To be rare</p>
-        <p>危険だ Kiken da – To be dangerous </p>
-        <p>複雑だ Fukuzatsu da – To be complicated</p>
-        <p>熱心だ Nesshin da – To be enthusiastic </p>
-        <p>適切だ Tekisetsu da – To be appropriate </p>
-        <p>失礼だ Shitsurei da – To be rude </p>
-        <p>多忙だ Tabō da – To be very busy </p>
-        <p>冷静だ Reisei da – To be calm/composed</p>
-        <p>特別だ Tokubetsu da – To be special </p>
-        <p>親切だ Shinsetsu da – To be kind </p>
-        <p>公平だ Kōhei da – To be fair </p>
-        <p>最高だ Saikō da – To be the best</p>
-        <p>自由だ Jiyū da – To be free </p>
-        <p>新鮮だ Shinsen da – To be fresh </p>
-        <p>得意だ Tokui da – To be good at </p>
-        <p>自然だ Shizen da – To be nature </p>
-        <p>不自然だ Fushizen da – To be unnatural </p>
-        <p>残酷だ Zankoku da – To be harsh/cruel  </p>
-        <p>切実だ Setsujitsu da – To be earnest </p>
-        <p>詳細だ Shōsai da – To be detailed </p>
-        <p>未熟だ  Mijuku da – To be inexperienced </p>
-        <p>簡易だ Kan’i da – To be simplistic  </p>
-        <p>慎重だ Shinchō da – To be prudent </p>
-        <p>便利だ Benri da – To be convenient </p>
-        <p>不便だ Fuben da – To be inconvenient </p>
-        <p>困難だ Kon’nan da – To be difficult </p>
-        <p>不思議だ Fushigi da – To be mysterious </p>
-        <p>安易だ An’i da – To be easy(-going)  </p>
-        <p>ハンサムだ Hansamu da – To be handsome</p>
-        <p>シックだ Shikku da – To be chic </p>
-      </div>
-    </div>
+<div id="ruverbs" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each RuVerbs.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
 </div>
 
-<script>
-//Array of Words
-    var myWords = [
-        {wordName:'Karaoke', wordAnswer:'カラオケ'},
-        {wordName:'Alcohol', wordAnswer:'（お）さけ　酒'},
-        {wordName:'Anime', wordAnswer:'アニメ'},
-        {wordName:'Cat', wordAnswer:'ねこ 猫'},
-        {wordName:'Sea', wordAnswer:'うみ 海'},
-        {wordName:'Hill', wordAnswer:'おか 丘'},
-        {wordName:'Person', wordAnswer:'ひと 人'},
-        {wordName:'Flower', wordAnswer:'はな 花'},
-        {wordName:'Mouth', wordAnswer:'くち 口'},
-        {wordName:'Ear', wordAnswer:'みみ 耳'},
-        {wordName:'Sun', wordAnswer:'ひ/たいよお 日・太陽'},
-        {wordName:'Village', wordAnswer:'むら 村'},
-        {wordName:'Countryside', wordAnswer:'いなか 田舎'},
-        {wordName:'Name', wordAnswer:'なまえ 名前'},
-        {wordName:'King', wordAnswer:'おお 王'},
-        {wordName:'Gold', wordAnswer:'きん 金'},
-        {wordName:'School', wordAnswer:'がっこお 学校'},
-        {wordName:'Cloud', wordAnswer:'くも 雲'},
-        {wordName:'Face', wordAnswer:'かお 顔'},
-        {wordName:'Ramen', wordAnswer:'らあめん ラーメン'},
-        {wordName:'Sushi', wordAnswer:'すし 寿司'},
-        {wordName:'Manga', wordAnswer:'まんが マンガ'},
-        {wordName:'Fire', wordAnswer:'ひ 火'},
-        {wordName:'Tree', wordAnswer:'き 木'},
-        {wordName:'Car', wordAnswer:'くるま 車'},
-        {wordName:'Sound', wordAnswer:'おと 音'},
-        {wordName:'Hand', wordAnswer:'て 手'},
-        {wordName:'Man', wordAnswer:'おとこ 男'},
-        {wordName:'Stone', wordAnswer:'いし 石'},
-        {wordName:'Town', wordAnswer:'まち 町'},
-        {wordName:'Ground', wordAnswer:'つち 土'},
-        {wordName:'Strength', wordAnswer:'ちから 力'},
-        {wordName:'Queen', wordAnswer:'じょおお 女王'},
-        {wordName:'Silver ', wordAnswer:'ぎん 銀'},
-        {wordName:'Thread', wordAnswer:'いと 糸'},
-        {wordName:'Song ', wordAnswer:'うた 歌'},
-        {wordName:'Cow', wordAnswer:'うし 牛'},
-        {wordName:'Karate', wordAnswer:'からて 空手'},
-        {wordName:'Mountain', wordAnswer:'やま 山'},
-        {wordName:'Dog', wordAnswer:'いぬ 犬'},
-        {wordName:'Water', wordAnswer:'みず 水'},
-        {wordName:'Bamboo', wordAnswer:'たけ 竹'},
-        {wordName:'Grass', wordAnswer:'くさ 草'},
-        {wordName:'Yen', wordAnswer:'えん 円'},
-        {wordName:'Sky', wordAnswer:'そら 空'},
-        {wordName:'Leg/foot', wordAnswer:'あし 脚/足'},
-        {wordName:'Woman', wordAnswer:'おん　な 女'},
-        {wordName:'River', wordAnswer:'かわ 川'},
-        {wordName:'Bug', wordAnswer:'むし 虫'},
-        {wordName:'Book', wordAnswer:'ほん 本 '},
-        {wordName:'Eye(s)', wordAnswer:'め 目 '},
-        {wordName:'Rain', wordAnswer:'あめ 雨'},
-        {wordName:'Money', wordAnswer:'おかね お金'},
-        {wordName:'Year', wordAnswer:'とし 年'},
-        {wordName:'Fish', wordAnswer:'さかな 魚'},
-        {wordName:'Shape', wordAnswer:'かたち 形'},
-        {wordName:'Fact', wordAnswer:'じじつ 事実'},
-        {wordName:'Buddhist temple', wordAnswer:'てら 寺'},
-        {wordName:'Bat', wordAnswer:'こおもり コウモリ'},
-        {wordName:'Bird', wordAnswer:'とり 鳥'},
-        {wordName:'Student', wordAnswer:'がくせい 学生'},
-        {wordName:'Korean', wordAnswer:'かんこくじん 韓国人'},
-        {wordName:'Calligraphy', wordAnswer:'しょどお 書道'},
-        {wordName:'Art', wordAnswer:'げいじゅつ 芸術'},
-        {wordName:'Idiot', wordAnswer:'ばか 馬鹿'},
-        {wordName:'Cat', wordAnswer:'ねこ 猫'},
-        {wordName:'Party', wordAnswer:'パーティー'},
-        {wordName:'Start/beginning', wordAnswer:'かいし 開始'},
-        {wordName:'Zoo', wordAnswer:'どおぶつえん 動物園'},
-        {wordName:'A tie', wordAnswer:'ひきわけ 引き分け'},
-        {wordName:'Otter', wordAnswer:'かわうそ カワウソ'},
-        {wordName:'French', wordAnswer:'ふらんすご フランス語'},
-        {wordName:'School', wordAnswer:'がっこお 学校'},
-        {wordName:'Correct Answer', wordAnswer:'せいかい 正解'},
-        {wordName:'Planet', wordAnswer:'わくせい 惑星'},
-        {wordName:'Pluto', wordAnswer:'めいおおせい 冥王星'},
-        {wordName:'Tea', wordAnswer:'おちゃ お茶'},
-        {wordName:'Representative', wordAnswer:'だいひょお 代表'},
-        {wordName:'Cause', wordAnswer:'げん’いん 原因'},
-        {wordName:'Tabacco', wordAnswer:'たばこ 煙草・タバコ・たばこ'},
-        {wordName:'Children', wordAnswer:'こども 子供'},
-        {wordName:'Pen', wordAnswer:'ペン'},
-        {wordName:'Whale', wordAnswer:'くじら 鯨'},
-        {wordName:'Fish', wordAnswer:'さかな 魚'},
-        {wordName:'Mock Exam', wordAnswer:'もぎ しけん 模擬試験'},
-        {wordName:'Water', wordAnswer:'みず 水'},
-        {wordName:'Time', wordAnswer:'じかん 時間'},
-        {wordName:'New Years Day', wordAnswer:'がんじつ 元日'},
-        {wordName:'Monday', wordAnswer:'げつよおび 月曜日'},
-        {wordName:'Wednesday', wordAnswer:'すいよおび 水曜日'},
-        {wordName:'Start Date', wordAnswer:'かいしび 開始日'},
-        {wordName:'Yesterday', wordAnswer:'きのお 昨日'},
-        {wordName:'Tomorrow', wordAnswer:'あした/あす 明日'},
-        {wordName:'Night', wordAnswer:'よる 夜'},
-        {wordName:'I', wordAnswer:'わたし 私'},
-        {wordName:'I (male)', wordAnswer:'ぼく 僕'},
-        {wordName:'He', wordAnswer:'かれ 彼'},
-        {wordName:'She', wordAnswer:'かおじょ 彼女'},
-        {wordName:'This', wordAnswer:'これ'},
-        {wordName:'That', wordAnswer:'それ'},
-        {wordName:'That (adj)', wordAnswer:'その'},
-        {wordName:'That (over there)', wordAnswer:'あれ'},
-        {wordName:'Here', wordAnswer:'ここ'},
-        {wordName:'Kim', wordAnswer:'キム'},
-        {wordName:'Pikachu', wordAnswer:'ピカチュウ'},
-        {wordName:'Ah', wordAnswer:'あ'},
-        {wordName:'Japanese person', wordAnswer:'にほんじん　日本人'},
-        {wordName:'Chinese person', wordAnswer:'ちゅうごくじん　中国人'},
-        {wordName:'Taiwanese person', wordAnswer:'たいわんじん　台湾人'},
-        {wordName:'Doctor', wordAnswer:'おいしゃさん　お医者さん'},
-        {wordName:'Elementary student', wordAnswer:'しょうがくせい　小学生'},
-        {wordName:'Junior high student', wordAnswer:'ちゅうがくせい　中学生'},
-        {wordName:'High school student', wordAnswer:'こうこうせい　高校生'},
-        {wordName:'College/university student', wordAnswer:'だいがくせい　大学生'},
-        {wordName:'Legislator', wordAnswer:'ぎいん　議員'},
-        {wordName:'Hero', wordAnswer:'えいゆう　英雄'},
-        {wordName:'A fake', wordAnswer:'にせもの　偽物'},
-        {wordName:'Mistake', wordAnswer:'まちがい　間違い'},
-        {wordName:'Time', wordAnswer:'じかん　時間'},
-        {wordName:'Snake', wordAnswer:'へび　蛇'},
-        {wordName:'Graduation ceremony', wordAnswer:'そつぎょうしき　卒業式'},
-        {wordName:'Assembly', wordAnswer:'かいごう　会合'},
-        {wordName:'News', wordAnswer:'ニュース'},
-        {wordName:'Terrorism', wordAnswer:'テロ'},
-        {wordName:'Wolf', wordAnswer:'オオカミ'},
-        {wordName:'Lie', wordAnswer:'うそ　嘘'},
-        {wordName:'So', wordAnswer:'そう'},
-        {wordName:'Soon', wordAnswer:'もうすぐ'},
-        {wordName:'Uh/um', wordAnswer:'えっと'},
-        {wordName:'Yes', wordAnswer:'はい'},
-        {wordName:'No', wordAnswer:'いいえ'},
-        {wordName:'Rest/absence/holiday', wordAnswer:'やすみ　休み'},
-        {wordName:'five-yen coin', wordAnswer:'ごえんだま　五円玉'},
-        {wordName:'Joke', wordAnswer:'じょうだん　冗談'},
-        {wordName:'Miracle', wordAnswer:'きせき　奇跡'},
-        {wordName:'Diner', wordAnswer:'しょくどう　食堂'},
-        {wordName:'Teacher', wordAnswer:'せんせい　先生'},
-        {wordName:'Resident', wordAnswer:'じゅうみん　住民'},
-        {wordName:'Lunch', wordAnswer:'おひる　お昼'},
-        {wordName:'Coffee', wordAnswer:'コーヒー'},
-        {wordName:'Onigiri', wordAnswer:'おにぎり　お握り'},
-        {wordName:'Monkey', wordAnswer:'さる　猿'},
-        {wordName:'One person', wordAnswer:'ひとり　一人'},
-        {wordName:'Two people', wordAnswer:'ふたり　二人'},
-        {wordName:'Boy', wordAnswer:'おとこのこ　男の子'},
-        {wordName:'Police officer', wordAnswer:'けいさつかん　警察官'},
-        {wordName:'End date', wordAnswer:'しゅうりょうび　終了日'},
-        {wordName:'Sunday', wordAnswer:'にちようび　日曜日'},
-        {wordName:'Thursday', wordAnswer:'もくようび　木曜日'},
-        {wordName:'There', wordAnswer:'そこ'},
-        {wordName:'That (over there) (adj.)', wordAnswer:'あれ'},
-        {wordName:'That (over there)', wordAnswer:'あの'},
-        {wordName:'That', wordAnswer:'それ'},
-        {wordName:'Salt', wordAnswer:'しお　塩'},
-        {wordName:'Pepper', wordAnswer:'こしょう　胡椒'},
-        {wordName:'Vegetables', wordAnswer:'やさい　野菜'},
-        {wordName:'Meat', wordAnswer:'にく　肉'},
-        {wordName:'Candy', wordAnswer:'あめ　飴'},
-        {wordName:'Pencil', wordAnswer:'えんぴつ　鉛筆'},
-        {wordName:'Room', wordAnswer:'へや　部屋'},
-        {wordName:'Table', wordAnswer:'つくえ　机/テーブル'},
-        {wordName:'Mouse', wordAnswer:'ネズミ'},
-        {wordName:'Quality', wordAnswer:'ひんしつ　品質'},
-        {wordName:'Book', wordAnswer:'ほん　本'},
-        {wordName:'Movie', wordAnswer:'えいが　映画'},
-        {wordName:'Light', wordAnswer:'ひかり　光'},
-        {wordName:'Building', wordAnswer:'たてもの　建物'},
-        {wordName:'Rabbit', wordAnswer:'ウサギ'},
-        {wordName:'Bear', wordAnswer:'クマ　熊'},
-        {wordName:'Gums', wordAnswer:'はぐき　歯茎'},
-        {wordName:'Cellphone', wordAnswer:'けいたい　携帯'},
-        {wordName:'Winter', wordAnswer:'ふゆ　冬'},
-        {wordName:'Job/Work', wordAnswer:'しごと　仕事'},
-        {wordName:'Influence/Effect', wordAnswer:'えいきょう　影響'},
-        {wordName:'Traffic Light', wordAnswer:'しんごう　信号'},
-        {wordName:'Apple', wordAnswer:'リンゴ'},
-        {wordName:'Computer', wordAnswer:'パソコン'},
-        {wordName:'Salary/Wages', wordAnswer:'きゅうりょう　給料'},
-        {wordName:'Castle', wordAnswer:'しろ　城'},
-        {wordName:'Park', wordAnswer:'こうえん　公園'},
-        {wordName:'Scenery', wordAnswer:'けしき　景色'},
-        {wordName:'Leaves', wordAnswer:'はっぱ　葉っぱ'},
-        {wordName:'Tire', wordAnswer:'タイヤ'},
-        {wordName:'Flavour', wordAnswer:'あじ　味'},
-        {wordName:'Handling', wordAnswer:'あつかい　扱い'},
-        {wordName:'Air', wordAnswer:'くうき　空気'},
-        {wordName:'Score', wordAnswer:'スコラ'},
-        {wordName:'Street/Road', wordAnswer:'みち　道'},
-        {wordName:'Answer', wordAnswer:'こたえ　答え'},
-        {wordName:'Exam', wordAnswer:'しけん　試験'},
-        {wordName:'Problem/Question', wordAnswer:'もんだい　問題'},
-        {wordName:'South America', wordAnswer:'nambei南米'},
-        {wordName:'New', wordAnswer:'あたらしい　新しい'},
-        {wordName:'Early', wordAnswer:'はやい　早い'},
-        {wordName:'Late/Slow', wordAnswer:'おそい　遅い'},
-        {wordName:'Fast', wordAnswer:'はやい　速い'},
-        {wordName:'Cute', wordAnswer:'かわいい　可愛い'},
-        {wordName:'Strong', wordAnswer:'つよい　強い'},
-        {wordName:'Weak', wordAnswer:'よわい　弱い'},
-        {wordName:'Old', wordAnswer:'ふるい　古い'},
-        {wordName:'Hot (weather)', wordAnswer:'あつい　暑い'},
-        {wordName:'Hot (in general)', wordAnswer:'あつい　熱い'},
-        {wordName:'Cold (weather)', wordAnswer:'さむい　寒い'},
-        {wordName:'Cold (in general)', wordAnswer:'つめたい　冷たい'},
-        {wordName:'Happy', wordAnswer:'うれしい　嬉しい'},
-        {wordName:'Sad', wordAnswer:'かなしい　悲しい'},
-        {wordName:'Far', wordAnswer:'とおい　遠い'},
-        {wordName:'Nearby/Close', wordAnswer:'ちかい　近い'},
-        {wordName:'Beautiful', wordAnswer:'うつくしい　美しい'},
-        {wordName:'Ugly', wordAnswer:'みにくい　醜い'},
-        {wordName:'Busy', wordAnswer:'いそがしい　忙しい'},
-        {wordName:'Fun', wordAnswer:'たのしい　楽しい'},
-        {wordName:'Delicious', wordAnswer:'おいしい　美味しい'},
-        {wordName:'Nasty', wordAnswer:'まずい　不味い'},
-        {wordName:'Kind', wordAnswer:'やさしい　優しい'},
-        {wordName:'Strict/Harsh', wordAnswer:'きびしい　厳しい'},
-        {wordName:'Good', wordAnswer:'よい　良い'},
-        {wordName:'Bad', wordAnswer:'わるい　悪い'},
-        {wordName:'Wonderful', wordAnswer:'すばらしい　素晴らしい'},
-        {wordName:'Amazing', wordAnswer:'すごい　凄い'},
-        {wordName:'Dirty', wordAnswer:'きたない　汚い'},
-        {wordName:'Bright', wordAnswer:'あかるい　明るい'},
-        {wordName:'Wide', wordAnswer:'ひろい　広い'},
-        {wordName:'Narrow', wordAnswer:'せまい　狭い'},
-        {wordName:'Dark', wordAnswer:'くらい　暗い'},
-        {wordName:'Scary', wordAnswer:'こわい　怖い'},
-        {wordName:'Low', wordAnswer:'ひくい　低い'},
-        {wordName:'Long', wordAnswer:'ながい　長い'},
-        {wordName:'Short (length)', wordAnswer:'みじかい　短い'},
-        {wordName:'Correct', wordAnswer:'ただしい　正しい'},
-        {wordName:'Lonely', wordAnswer:'さびしい　寂しい'},
-        {wordName:'Painful', wordAnswer:'いたい　痛い'},
-        {wordName:'Easy', wordAnswer:'やさしい　易しい'},
-        {wordName:'Difficult', wordAnswer:'むずかしい　難しい'},
-        {wordName:'Short (height)', wordAnswer:'せがひくい　背が低い'},
-        {wordName:'Light', wordAnswer:'ひかり　光'},
-        {wordName:'Heavy', wordAnswer:'おもい　重い'},
-        {wordName:'Bitter', wordAnswer:'にがい　苦い'},
-        {wordName:'Spicy', wordAnswer:'からい　辛い'},
-        {wordName:'Salty', wordAnswer:'しおからい　塩辛い'},
-        {wordName:'Hospital', wordAnswer:'びょういん　病院'},
-        {wordName:'Czech Language', wordAnswer:'チェコご　チェコ語'},
-        {wordName:'Library', wordAnswer:'としょかん　図書館'},
-        {wordName:'Tooth/teeth', wordAnswer:'は　歯'},
-        {wordName:'Moon', wordAnswer:'つき　月'},
-        {wordName:'Feelings', wordAnswer:'きもち　気持ち'},
-        {wordName:'Oxygen', wordAnswer:'さんさお　酸素'},
-        {wordName:'Qualifications', wordAnswer:'しかく　資格'},
-        {wordName:'Slant/slope', wordAnswer:'けいしゃ　傾斜'},
-        {wordName:'Singer', wordAnswer:'かしゅ　歌手'},
-        {wordName:'Handbag', wordAnswer:'ハンドバッグ'},
-        {wordName:'Business', wordAnswer:'ビジネス'},
-        {wordName:'Registration', wordAnswer:'とうろく　登録'},
-        {wordName:'Staff', wordAnswer:'スタッフ'},
-        {wordName:'Olden Days', wordAnswer:'むかし　昔'},
-        {wordName:'Bunk Bed', wordAnswer:'簡易ベッド　簡易'},
-        {wordName:'Rule(s)', wordAnswer:'ルール'},
-        {wordName:'Soldier', wordAnswer:'へいし　兵士'},
-        {wordName:'Sentence', wordAnswer:'ぶんしょう　文章'},
-        {wordName:'First Love', wordAnswer:'はつこい　初恋'},
-        {wordName:'Game', wordAnswer:'ゲーム'},
-        {wordName:'They', wordAnswer:'かれら　彼ら'},
-        {wordName:'No more', wordAnswer:'もはや'},
-        {wordName:'Especially', wordAnswer:'とくに　特に'},
-        {wordName:'Not particularly', wordAnswer:'べつに　別に'},
-        {wordName:'Yet/still', wordAnswer:'まだ'},
-        {wordName:'Not one bit', wordAnswer:'すくしも　少しも'},
-        {wordName:'To be accurate', wordAnswer:'せいかくだ　正確だ'},
-        {wordName:'To be peculiar', wordAnswer:'とうしゅだ特殊だ'},
-        {wordName:'To be subtle', wordAnswer:'びみょうだ　微妙だ'},
-        {wordName:'To be precise', wordAnswer:'みかくだ　明確だ'},
-        {wordName:'To be brave', wordAnswer:'ゆうかんだ　勇敢だ'},
-        {wordName:'To be stylish', wordAnswer:'スマートだ'},
-        {wordName:'To be realistic', wordAnswer:'リアルだ'},
-        {wordName:'To like', wordAnswer:'すきだ　好きだ'},
-        {wordName:'To hate', wordAnswer:'きらいだ　嫌いだ'},
-        {wordName:'To be formal', wordAnswer:'フォーマルだ'},
-        {wordName:'To be quiet', wordAnswer:'しずかだ　静かだ'},
-        {wordName:'To be safe', wordAnswer:'あんせんだ　安全だ'},
-        {wordName:'To be healthy', wordAnswer:'けんこうだ　健康だ'},
-        {wordName:'To be lively', wordAnswer:'げんきだ　元気だ'},
-        {wordName:'To be easy', wordAnswer:'かんたんだ　簡単だ'},
-        {wordName:'To be pretty', wordAnswer:'きれだ　綺麗だ'},
-        {wordName:'To be indispensable', wordAnswer:'たいせつだ　大切だ'},
-        {wordName:'To be serious', wordAnswer:'まじめだ　真面目だ'},
-        {wordName:'To be unique', wordAnswer:'ユニークだ'},
-        {wordName:'To be modern', wordAnswer:'モダンだ'},
-        {wordName:'To be no good', wordAnswer:'だめだ　駄目だ'},
-        {wordName:'To be stupid/dumb', wordAnswer:'ばかだ　馬鹿だ'},
-        {wordName:'To be important', wordAnswer:'じゅうようだ　重要だ'},
-        {wordName:'To be strange', wordAnswer:'へんだ　変だ'},
-        {wordName:'To excellent at', wordAnswer:'ゆうしゅうだ　優秀だ'},
-        {wordName:'To be valuable', wordAnswer:'だいじだ　大事だ'},
-        {wordName:'To be harmful', wordAnswer:'ゆうがいだ　有害だ'},
-        {wordName:'To be cool/calm', wordAnswer:'へいきだ　平気だ'},
-        {wordName:'To be urgent/steep/rapid', wordAnswer:'きゅうだ　急だ'},
-        {wordName:'To be casual', wordAnswer:'カジュアルだ'},
-        {wordName:'To be necessary', wordAnswer:'ひつようだ　必要だ'},
-        {wordName:'To be casual', wordAnswer:'カジュアルだ'},
-        {wordName:'To be famous', wordAnswer:'ゆうめいだ　有名だ'},
-        {wordName:'To be poor at', wordAnswer:'にがてだ　苦手だ'},
-        {wordName:'To be high price', wordAnswer:'こうかだ　高価だ'},
-        {wordName:'To be simple', wordAnswer:'ようい　容易だ'},
-        {wordName:'To be rare', wordAnswer:'まれだ　稀だ'},
-        {wordName:'To be dangerous', wordAnswer:'きけんだ　危険だ'},
-        {wordName:'To be complicated', wordAnswer:'ふくざつだ　複雑だ'},
-        {wordName:'To be enthusiastic', wordAnswer:'ねっしんだ　熱心だ'},
-        {wordName:'To be appropriate', wordAnswer:'てきせつだ　適切だ'},
-        {wordName:'To be rude', wordAnswer:'しつれいだ　失礼だ'},
-        {wordName:'To be very busy', wordAnswer:'たぼうだ　多忙だ'},
-        {wordName:'To be calm/composed', wordAnswer:'れいせいだ　冷静だ'},
-        {wordName:'To be special ', wordAnswer:'とくべつだ　特別だ'},
-        {wordName:'To be kind', wordAnswer:'しんせつだ　親切だ'},
-        {wordName:'To be fair', wordAnswer:'こうへいだ　公平だ'},
-        {wordName:'To be the best', wordAnswer:'さいこうだ　最高だ'},
-        {wordName:'To be free', wordAnswer:'じゆうだ　自由だ'},
-        {wordName:'To be fresh', wordAnswer:'しんせんだ　新鮮だ'},
-        {wordName:'To be good at', wordAnswer:'とくいだ　得意だ'},
-        {wordName:'To be nature', wordAnswer:'しぜんだ　自然だ'},
-        {wordName:'To be unnatural', wordAnswer:'ふしぜんだ　不自然だ'},
-        {wordName:'To be harsh/cruel', wordAnswer:'ざんこくだ　残酷だ'},
-        {wordName:'To be earnest', wordAnswer:'せつじつだ　切実だ'},
-        {wordName:'To be detailed', wordAnswer:'しょうさいだ　詳細だ'},
-        {wordName:'To be inexperienced', wordAnswer:'みじくだ　未熟だ'},
-        {wordName:'To be simplistic', wordAnswer:'かんいだ　簡易だ'},
-        {wordName:'To be prudent', wordAnswer:'しんちょうだ　慎重だ'},
-        {wordName:'To be convenient', wordAnswer:'べんりだ　便利だ'},
-        {wordName:'To be inconvenient', wordAnswer:'ふべんだ　不便だ'},
-        {wordName:'To be difficult', wordAnswer:'こんんあんだ　困難だ'},
-        {wordName:'To be mysterious', wordAnswer:'ふしぎだ　不思議だ'},
-        {wordName:'To be easy(-going)', wordAnswer:'安易だ'},
-        {wordName:'To be handsome', wordAnswer:'ハンサムだ'},
-        {wordName:'To be chic', wordAnswer:'シックだ'}
-
-    ]
-/*{wordName:'', wordAnswer:''}, */
-var genQ = document.getElementById("generateQuestions");
-
-genQ.addEventListener("click", function() {
-        var selectWords = []
-
-        //randomly pick 10 words
-        while(selectWords.length < 10){
-            var randomWord = myWords[Math.floor(Math.random() * myWords.length)]
-            if(selectWords.indexOf(randomWord) > -1) continue;
-            selectWords[selectWords.length] = randomWord;
-        }
-
-        //get selected questions
-        document.getElementById("wordA").innerHTML = selectWords[0].wordName;
-        document.getElementById("wordB").innerHTML = selectWords[1].wordName;
-        document.getElementById("wordC").innerHTML = selectWords[2].wordName;
-        document.getElementById("wordD").innerHTML = selectWords[3].wordName;
-        document.getElementById("wordE").innerHTML = selectWords[4].wordName;
-        document.getElementById("wordF").innerHTML = selectWords[5].wordName;
-        document.getElementById("wordG").innerHTML = selectWords[6].wordName;
-        document.getElementById("wordH").innerHTML = selectWords[7].wordName;
-        document.getElementById("wordI").innerHTML = selectWords[8].wordName;
-        document.getElementById("wordJ").innerHTML = selectWords[9].wordName;
-
-        //get selected answers
-        document.getElementById("answerA").innerHTML = selectWords[0].wordAnswer;
-        document.getElementById("answerB").innerHTML = selectWords[1].wordAnswer;
-        document.getElementById("answerC").innerHTML = selectWords[2].wordAnswer;
-        document.getElementById("answerD").innerHTML = selectWords[3].wordAnswer;
-        document.getElementById("answerE").innerHTML = selectWords[4].wordAnswer;
-        document.getElementById("answerF").innerHTML = selectWords[5].wordAnswer;
-        document.getElementById("answerG").innerHTML = selectWords[6].wordAnswer;
-        document.getElementById("answerH").innerHTML = selectWords[7].wordAnswer;
-        document.getElementById("answerI").innerHTML = selectWords[8].wordAnswer;
-        document.getElementById("answerJ").innerHTML = selectWords[9].wordAnswer;
-
-
-            for (i = 0; i < ans.length; i++) {
-     if (ans[i].style.display === "block") {
-                ans[i].style.display = "";
-            } 
-        }
-});
-
-//accordion controls
-var acc = document.getElementsByClassName("questionBox");
-var ans = document.getElementsByClassName("panel");
-var res = document.getElementById("resetButton");
-var rev = document.getElementById("revealButton");
-var i;
-
-//Opening up accordion
-for (i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
-    });
-}
-//Reset accordion
-res.addEventListener("click", function() {
-	for (i = 0; i < ans.length; i++) {
-     if (ans[i].style.display === "block") {
-                ans[i].style.display = "";
-            } 
-    	}
-	});
-
-//Reveal accordion
-rev.addEventListener("click", function() {
-    for (i = 0; i < ans.length; i++) {
-     if (ans[i].style.display === "") {
-                ans[i].style.display = "block";
-            } 
-        }
-    });
-
-//Tab Script
-function openTab(evt, lessonName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabContent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tabLinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(lessonName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
+<div id="pronoun" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Pronoun.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
 </script>
 
+
+<script>
+$(document).ready(function(){
+    $(".btn-primary").click(function(){
+        $(".collapse").collapse('toggle');
+    });
+    $(".btn-success").click(function(){
+        $(".collapse").collapse('show');
+    });
+    $(".btn-warning").click(function(){
+        $(".collapse").collapse('hide');
+    });
+});
+</script>
+    
+
+    
+<script src="js/handlebars.js"></script>    
+<script src="js/main3.js"></script>
+<script src="js/menutoggle.js"></script>
+
 </body>
+
 </html>
