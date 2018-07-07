@@ -1,37 +1,36 @@
 body {
     font-family: "arial";
+    text-align: center;
 }
 
 h1 {
 text-align:center;
 }
 
-.wordList {
+.wordList, .rowQuestions {
     width:100%;
     max-width:700px;
     margin:auto;
     table-layout: fixed;
 }
 
-.wordList th {
+.wordList th, .rowQuestions th {
     background-color: #4169E1;
     padding:10px;
+    text-align: center;
 }
 
-
-.wordList td {
+.wordList td, .rowQuestions td {
     padding:5px;
     text-align: center;
-    
 }
 
 
-.wordList tr:nth-child(odd){
+.wordList tr:nth-child(odd), .rowQuestions tr:nth-child(odd){
     background-color: #f2f2f2;
 }
 
 .navigator{
-
     width:100%;
     max-width:700px;
     margin:auto;
@@ -44,7 +43,67 @@ text-align:center;
     text-align: center;
     width:100%;
     padding:10px;
-    
+}
+
+.testBox{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    table-layout: fixed;
+}
+
+.questionRow{
+    width:50%;
+    margin:0 auto auto auto;
+    table-layout: fixed;
+}
+
+
+
+.questionPanel{
+    background-color: #2F4F4F;
+    text-align: center;
+    width:100%;
+    padding: 10px 0 10px 0;
+}
+
+.questionPanel:hover{
+    background-color: #1d3030;  
+}
+
+.questionPanel button{
+    background-color: inherit;
+    font:inherit;
+    color:white;
+    font-weight:bold;
+    border:none;
+    border-radius: 10px;
+}
+
+.answerPanel{
+    background-color: #f2f2f2;
+    text-align: center;
+    width:100%;
+    padding: 10px 0 10px 0;
+}
+
+#generateQ, #showButton, #hideButton {
+    background-color: #568f8f;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 5px 5px 0 0;
+    max-width: 15%;
+    min-width:15%;
+}
+
+#generateQ:hover, #showButton:hover, #hideButton:hover {
+    background-color: #2F4F4F;
+}
+
+#generateQ:hover {
+    background-color:#2F4F4F;
 }
 
 /* Style the tab */
