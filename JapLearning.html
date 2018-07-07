@@ -13,55 +13,6 @@
 
 
 <body>
-
-<div class="page-wrap">
-  <h1>Japanese Learning</h1>
-</div>
-<table class="navigator"> 
-    <tr class="tab">
-        <th><button class="tablinks" onclick="openTab(event, 'noun')">Noun</button></th>
-        <th><button class="tablinks" onclick="openTab(event, 'adjectives')">Adjectives</button></th>
-    </tr>
-</table>
-<div id="words-container"></div>   
-    
-<script id="wordsTemplate" type="text/x-handlebars-template">
-<div id="noun" class="tabcontent">
-    <table class="wordList">
-        <tr>
-            <th>English</th>
-            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
-            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
-        </tr>
-        {{#each Noun.items}}
-            <tr>
-                <td>{{{EnglishWord}}}</td>
-                <td class="kanjiColumn">{{{Kanji}}}</td>
-                <td class="hiraganaColumn">{{{Hiragana}}}</td>
-            </tr>
-        {{/each}}
-    </table>
-</div>
-<div id="adjectives" class="tabcontent">
-    <table class="wordList">
-        <tr>
-            <th>English</th>
-            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
-            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
-        </tr>
-        {{#each Adjectives.items}}
-            <tr>
-                <td>{{{EnglishWord}}}</td>
-                <td class="kanjiColumn">{{{Kanji}}}</td>
-                <td class="hiraganaColumn">{{{Hiragana}}}</td>
-            </tr>
-        {{/each}}
-    </table>
-</div>
-</script>
-
-    <br>
-    
 <button type="button" id="generateQ" class="btn">Generate</button>
 <button id="showButton" type="button" class="btn btn-success">Show</button>
 <button id="hideButton" type="button" class="btn btn-warning">Hide</button> 
@@ -117,6 +68,144 @@
         </td>
     </tr>
 </table>
+    
+<br>
+    
+<div class="page-wrap">
+  <h1>Japanese Learning</h1>
+</div>
+<table class="navigator"> 
+    <tr class="tab">
+        <th><button class="tablinks" onclick="openTab(event, 'noun')">Noun</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'adjectives')">Adjectives</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'expressions')">Expressions</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'adverbs')">Adverbs</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'uverbs')">U-Verbs</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'ruverbs')">Ru-Verbs</button></th>
+        <th><button class="tablinks" onclick="openTab(event, 'pronoun')">Pronoun</button></th>
+    </tr>
+</table>
+<div id="words-container"></div>   
+    
+<script id="wordsTemplate" type="text/x-handlebars-template">
+<div id="noun" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Noun.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+<div id="adjectives" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Adjectives.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+
+<div id="expressions" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Expressions.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+
+<div id="adverbs" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Adverbs.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+
+<div id="uverbs" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each UVerbs.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+</div>
+
+<div id="ruverbs" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each RuVerbs.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+    </table>
+    
+<div id="pronoun" class="tabcontent">
+    <table class="wordList">
+        <tr>
+            <th>English</th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Kanji</button></th>
+            <th class="offHeader"><button class="hideButton" onclick="toggleKH()">Hiragana</button></th>
+        </tr>
+        {{#each Pronoun.items}}
+            <tr>
+                <td>{{{EnglishWord}}}</td>
+                <td class="kanjiColumn">{{{Kanji}}}</td>
+                <td class="hiraganaColumn">{{{Hiragana}}}</td>
+            </tr>
+        {{/each}}
+</table>
+</div>
+
+</script>
 
 
 <script>
