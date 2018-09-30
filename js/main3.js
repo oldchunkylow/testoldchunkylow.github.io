@@ -1,5 +1,5 @@
 var ourRequest = new XMLHttpRequest();
-ourRequest.open('GET', 'https://oldchunkylow.github.io/js/testjap.json');
+ourRequest.open('GET', 'https://oldchunkylow.github.io/js/vocab.json');
 ourRequest.onload = function() {
   if (ourRequest.status >= 200 && ourRequest.status < 400) {
     // This is where we'll do something with the retrieved data
