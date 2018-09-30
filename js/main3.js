@@ -27,7 +27,7 @@ var qContainer = document.getElementById("questionContainer");
 
 qButton.addEventListener("click",function(){
     var ourRequest = new XMLHttpRequest();
-    ourRequest.open('GET', 'https://oldchunkylow.github.io/js/testjap.json');
+    ourRequest.open('GET', 'https://oldchunkylow.github.io/js/vocab.json');
     ourRequest.onload = function() {
         var data = JSON.parse(ourRequest.responseText);
         generateQ(data);
