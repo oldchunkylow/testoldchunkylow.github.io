@@ -1,0 +1,202 @@
+body {
+    font-family: 'Aldrich', sans-serif;
+    font-size: 12pt;
+    line-height: 5pt
+}
+
+.menuText {
+    margin-top: 20%;
+}
+
+.menuTextItem {
+    line-height: 60px;
+    padding: 0px 10px;
+}
+
+.menuItemContainer {
+    display: block;
+    width: 65.5%;
+    background: rgba(0, 0, 0, 0.2);
+    margin: -97.7% 17.3%;
+    height: 15%;
+    animation: none;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+}
+
+.menuIcon {
+    margin-top: 0px;
+    padding: 5px 5px 5px 5px;
+    width: 30px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.menuItemContainer button {
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.digiContainer {
+    background-image: radial-gradient(rgba(255, 220, 79) 100%, rgba(255, 183, 0), rgba(230, 149, 0));
+    height: 300px;
+    width: 250px;
+    margin: auto;
+    border-radius: 100% 100% 75% 75%;
+}
+
+.digiContainer div {
+    float: left;
+    text-align: center;
+}
+
+.digiScreenContainer {
+    height: 85%;
+    width: 100%;
+}
+
+.digiScreen {
+    display: block;
+    width: 65%;
+    background: rgba(176, 255, 247);
+    margin: 25% 16.5%;
+    height: 70%;
+    border-radius: 5%;
+    border: solid 3px;
+    border-color: rgba(194, 144, 83, 0.8) rgba(138, 103, 61, 0.8) rgba(138, 103, 61, 0.8) rgba(194, 144, 83, 0.8);
+    animation: none;
+}
+
+.monImage {
+    margin-top: 40px;
+    width: 100px;
+    margin-left: 0;
+    animation: run linear infinite 4s;
+    filter: brightness(100%);
+    z-index: 0;
+    position: relative;
+}
+
+.digiButtonContainer {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.digiButton {
+    margin: 0 3%;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    border: solid 3px;
+    border-color: rgba(194, 144, 83, 0.8) rgba(138, 103, 61, 0.8) rgba(138, 103, 61, 0.8) rgba(194, 144, 83, 0.8);
+    background: white;
+}
+
+.digiButton:active {
+    margin: 0 3%;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    border: solid 3px;
+    border-color: rgba(194, 144, 83, 1) rgba(138, 103, 61, 1) rgba(138, 103, 61, 1) rgba(194, 144, 83, 1);
+    background: rgba(196, 196, 196, 1);
+}
+
+
+@-webkit-keyframes run {
+    0% {
+        margin-left: 0;
+    }
+    25% {
+        margin-left: -20px;
+    }
+    50%;
+        {
+        margin-left: 0;
+    }
+    75% {
+        margin-left: 20px;
+    }
+    100% {
+        margin-left: 0;
+    }
+}
+
+@-webkit-keyframes jump {
+    0% {
+        margin-top: 40px;
+    }
+    60% {
+        margin-top: 30px;
+    }
+    100% {
+        margin-top: 40px;
+    }
+}
+
+@-webkit-keyframes evolve {
+    0% {
+        filter: brightness(100%);
+    }
+    50% {
+        filter: brightness(2000%);
+    }
+    100% {
+        filter: brightness(100%);
+    }
+}
+
+@-webkit-keyframes screenFlash {
+    0% {
+        background: rgba(176, 255, 247);
+    }
+    50% {
+        background: rgba(232, 255, 253);
+    }
+    100% {
+        background: rgba(176, 255, 247);
+    }
+}
+
+.foodAnimate, .trainingAnimate, .playingAnimate {
+    z-index: 200;
+    position: relative;
+    width: 70px;
+    margin-top: -76px;
+}
+
+.active {
+    display: block;
+}
+
+.inactive {
+    display: none;
+}
+
+.selected {
+    background: rgba(255, 255, 255, 1);
+    animation: textFlash ease-in-out infinite 1s;
+}
+
+@-webkit-keyframes textFlash {
+    0% {
+        background: rgba(176, 255, 247, 0.2);
+    }
+    50% {
+        background: rgba(176, 255, 247, 0.8);
+    }
+    100% {
+        background: rgba(176, 255, 247, 0.2);
+    }
+}
+
+.hide {
+    height: 0;
+}
+
+.show {
+    height: 15%;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Digivice</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="digiContainer">
+        <div class="digiScreenContainer">
+            <div class="digiScreen active" id="digiScreenSet-1">
+                <img src="images/mon-1/stage-1/normal.gif" class="monImage">
+                <img src="images/misc/foodeat.gif" id="foodSprite" class="foodAnimate inactive">
+                <img src="images/misc/training.gif" id="trainingSprite" class="trainingAnimate inactive">
+                <img src="images/misc/ballbounce.gif" id="[playingSprite" class="playingAnimate inactive">
+            </div>
+            <div class="menuItemContainer hide" id="menuItemContainer-1">
+                <img src="images/misc/foodeat.png" class="menuIcon selected">
+                <img src="images/misc/trainstats.png" class="menuIcon">
+                <img src="images/misc/playstats.png" class="menuIcon">
+            </div>
+            <div class="menuItemContainer hide" id="menuItemContainer-2">
+                <p class="nameText"></p>
+            </div>
+            <div class="menuItemContainer hide" id="menuItemContainer-3">
+                <p class="quoteText"></p>
+            </div>
+        </div>
+        <div class="digiButtonContainer active" id="digiButtonSet-1">
+            <button class="digiButton" id="button-A"></button>
+            <button class="digiButton" id="button-B"></button>
+            <button class="digiButton" id="button-C"></button>
+        </div>
+
+        <div class="digiButtonContainer inactive" id="digiButtonSet-2">
+            <button class="digiButton" id="button-A-2"></button>
+            <button class="digiButton" id="button-B-2"></button>
+            <button class="digiButton" id="button-C-2"></button>
+        </div>
+
+        <div class="digiButtonContainer inactive" id="digiButtonSet-3">
+            <button class="digiButton" id="button-A-3"></button>
+            <button class="digiButton" id="button-B-3"></button>
+            <button class="digiButton" id="button-C-3"></button>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <script src="scripts/main.js"></script>
+</footer>
+</html>
